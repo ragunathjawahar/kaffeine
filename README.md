@@ -4,7 +4,7 @@ A collection of Kotlin extensions for Android
 
 Preferences
 -------------------------
-<h4>Single Preference</h4>
+<h4>Example: Single Preference</h4>
 **Java**
 ````java
 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -23,7 +23,7 @@ if (Build.VERSION.SDK_INT < Build.VERSION_CODES.GINGERBREAD) {
 getDefaultSharedPreferences().putBoolean("KEY_WALKTHROUGH_COMPLETE", complete)
 ````
 
-<h4>Bulk Preferences</h4>
+<h4>Example: Bulk Preferences</h4>
 **Kotlin - Bulk Preferences (with extensions)**
 ````kotlin
 getDefaultSharedPreferences().bulk()
@@ -34,7 +34,7 @@ getDefaultSharedPreferences().bulk()
 
 Toasts
 -------------------------
-<h4>Short Message</h4>
+<h4>Example: Short Message</h4>
 **Java**
 ````java
 Toast.makeText(this, R.string.welcome, Toast.LENGTH_SHORT).show();
@@ -46,7 +46,7 @@ Toast.makeText(this, R.string.welcome, Toast.LENGTH_SHORT).show();
 showShortToast(R.string.welcome)
 ````
 
-<h4>Custom Toast</h4>
+<h4>Example: Custom Toast</h4>
 **Java**
 ````java
 Toast toast = new Toast(this);
