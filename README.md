@@ -87,7 +87,7 @@ View awesomeView = layoutInflater.inflate(R.layout.my_awesome_layout, null);
 **Kotlin**
 ````kotlin
 // From a Context implementation
-val awesomeView = inflate(R.layout.my_awesome_layout)
+val awesomeView = inflateLayout(R.layout.my_awesome_layout)
 ````
 
 More...

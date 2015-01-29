@@ -6,15 +6,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 
 
-public fun Context.inflate(layoutResId: Int): View {
+public fun Context.inflateLayout(layoutResId: Int): View {
     return inflateView(this, layoutResId, null, false)
 }
 
-public fun Context.inflate(layoutResId: Int, parent: ViewGroup): View {
-    return inflate(layoutResId, parent, true)
+public fun Context.inflateLayout(layoutResId: Int, parent: ViewGroup): View {
+    return inflateLayout(layoutResId, parent, true)
 }
 
-public fun Context.inflate(
+public fun Context.inflateLayout(
         layoutResId: Int, parent: ViewGroup, attachToRoot: Boolean): View {
     return inflateView(this, layoutResId, parent, attachToRoot)
 }
