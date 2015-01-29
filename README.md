@@ -2,36 +2,25 @@ Android Kotlin Extensions
 =========================
 A collection of Kotlin extensions for Android
 
-Save Preferences
+Preferences
 -------------------------
 <h4>Single Preference</h4>
 **Java**
 ````java
-public class WalkthroughActivity extends Activity {
-
-  private void saveWalkthroughPreference(boolean complete) {
-    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-    Editor editor = preferences.edit();
-    editor.putBoolean("KEY_WALKTHROUGH_COMPLETE", complete);
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.GINGERBREAD) {
-      editor.commit();
-    } else {
-      editor.apply();
-    }
-  }
+SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+Editor editor = preferences.edit();
+editor.putBoolean("KEY_WALKTHROUGH_COMPLETE", complete);
+if (Build.VERSION.SDK_INT < Build.VERSION_CODES.GINGERBREAD) {
+  editor.commit();
+} else {
+  editor.apply();
 }
 ````
 
 **Kotlin**
 ````kotlin
-public class WalkthroughActivity : Activity() {
-  ...
-
-  fun saveWalkthroughPreference(complete: Boolean) {
-    // From a Context implementation
-    getDefaultSharedPreferences().putBoolean("KEY_WALKTHROUGH_COMPLETE", complete)
-  }
-}
+// From a Context implementation
+getDefaultSharedPreferences().putBoolean("KEY_WALKTHROUGH_COMPLETE", complete)
 ````
 
 <h4>Bulk Preferences</h4>
