@@ -24,7 +24,7 @@ getDefaultSharedPreferences().putBoolean("KEY_WALKTHROUGH_COMPLETE", complete)
 ````
 
 <h4>Example: Bulk Preferences</h4>
-**Kotlin - Bulk Preferences (with extensions)**
+**Kotlin**
 ````kotlin
 getDefaultSharedPreferences().bulk()
   .putBoolean("KEY_WALKTHROUGH_COMPLETE", complete)
@@ -40,7 +40,7 @@ Toasts
 Toast.makeText(this, R.string.welcome, Toast.LENGTH_SHORT).show();
 ````
 
-**Kotlin (with extensions)**
+**Kotlin**
 ````kotlin
 // From a Context implementation
 showShortToast(R.string.welcome)
@@ -55,7 +55,7 @@ toast.setDuration(Toast.LENGTH_LONG);
 toast.show();
 ````
 
-**Kotlin (with extensions)**
+**Kotlin**
 ````kotlin
 // From a Context implementation
 showShortToast(view)
@@ -69,7 +69,7 @@ AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALAR
 NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 ````
 
-**Kotlin (with extensions)**
+**Kotlin**
 ````kotlin
 // From a Context implementation
 val alarmManager = context.alarmManager()
