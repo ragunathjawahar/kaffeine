@@ -35,23 +35,38 @@ public class WalkthroughActivity : Activity() {
 
 **Kotlin - Bulk Preferences (with extensions)**
 ````kotlin
-  getDefaultSharedPreferences().bulk()
-    .putBoolean("KEY_WALKTHROUGH_COMPLETE", complete)
-    .putString("KEY_LAST_USED", lastUsedIso8601Date)
-    .applyBulk()
+getDefaultSharedPreferences().bulk()
+  .putBoolean("KEY_WALKTHROUGH_COMPLETE", complete)
+  .putString("KEY_LAST_USED", lastUsedIso8601Date)
+  .applyBulk()
 ````
 
 Show Toast
 -------------------------
 **Java**
 ````java
-  Toast.makeText(this, R.string.welcome, Toast.LENGTH_SHORT).show();
+Toast.makeText(this, R.string.welcome, Toast.LENGTH_SHORT).show();
 ````
 
 **Kotlin (with extensions)**
 ````kotlin
-  // From a Context implementation
-  showShortToast(R.string.welcome)
+// From a Context implementation
+showShortToast(R.string.welcome)
+````
+
+System Services
+-------------------------
+**Java**
+````java
+AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+````
+
+**Kotlin (with extensions)**
+````kotlin
+// From a Context implementation
+val alarmManager = context.alarmManager()
+val notificationManager = context.notificationManager()
 ````
 
 More...
