@@ -11,35 +11,35 @@ public fun Context.getDefaultSharedPreferences(): SharedPreferences {
 }
 
 public fun SharedPreferences.clear() {
-    apply(getEditor(this).clear())
+    apply(getEditor().clear())
 }
 
 public fun SharedPreferences.putBoolean(key: String, value: Boolean) {
-    apply(getEditor(this).putBoolean(key, value))
+    apply(getEditor().putBoolean(key, value))
 }
 
 public fun SharedPreferences.putFloat(key: String, value: Float) {
-    apply(getEditor(this).putFloat(key, value))
+    apply(getEditor().putFloat(key, value))
 }
 
 public fun SharedPreferences.putInt(key: String, value: Int) {
-    apply(getEditor(this).putInt(key, value))
+    apply(getEditor().putInt(key, value))
 }
 
 public fun SharedPreferences.putLong(key: String, value: Long) {
-    apply(getEditor(this).putLong(key, value))
+    apply(getEditor().putLong(key, value))
 }
 
 public fun SharedPreferences.putString(key: String, value: String?) {
-    apply(getEditor(this).putString(key, value))
+    apply(getEditor().putString(key, value))
 }
 
 public fun SharedPreferences.putStringSet(key: String, values: Set<String>?) {
-    apply(getEditor(this).putStringSet(key, values))
+    apply(getEditor().putStringSet(key, values))
 }
 
 public fun SharedPreferences.remove(key: String) {
-    apply(getEditor(this).remove(key))
+    apply(getEditor().remove(key))
 }
 
 public fun SharedPreferences.bulk(): SharedPreferences {
@@ -74,9 +74,8 @@ private var SharedPreferences.bulkEditor: SharedPreferences.Editor?
  *  Private methods
  * -----------------------------------------------------------------------------
  */
-private fun SharedPreferences.getEditor(
-        sharedPreferences: SharedPreferences): SharedPreferences.Editor {
-    return sharedPreferences.edit()
+private fun SharedPreferences.getEditor(): SharedPreferences.Editor {
+    return this.edit()
 }
 
 private fun SharedPreferences.apply(editor: SharedPreferences.Editor) {
