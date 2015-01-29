@@ -76,6 +76,20 @@ val alarmManager = context.alarmManager()
 val notificationManager = context.notificationManager()
 ````
 
+Layout Inflation
+-------------------------
+**Java**
+````java
+LayoutInflater layoutInflater = LayoutInflater.from(this);
+View awesomeView = layoutInflater.inflate(R.layout.my_awesome_layout, null);
+````
+
+**Kotlin**
+````kotlin
+// From a Context implementation
+val awesomeView = inflate(R.layout.my_awesome_layout)
+````
+
 More...
 -------------------------
 More extensions under development.
