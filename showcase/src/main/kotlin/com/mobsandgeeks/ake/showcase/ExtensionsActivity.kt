@@ -4,8 +4,6 @@ import android.app.Activity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.Toast
 import android.content.DialogInterface
 import com.mobsandgeeks.ake.getDefaultSharedPreferences
 import com.mobsandgeeks.ake.putString
@@ -15,26 +13,24 @@ import butterknife.bindView
 
 
 public class ExtensionsActivity : Activity(), DialogInterface.OnClickListener {
+    class object {
+        val KEY_PASSWORD = "KEY_PASSWORD"
+    }
+
     val helloWorldTextView: TextView by bindView(R.id.helloWorldTextView)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super<Activity>.onCreate(savedInstanceState)
         setContentView(R.layout.activity_extensions)
 
-        val keyPrefPassword = "password"
         val preferences = getDefaultSharedPreferences()
 
-        var password = preferences.getString(keyPrefPassword, "none yet")
+        var password = preferences.getString(KEY_PASSWORD, "none yet")
         showShortToast(password)
 
-        preferences.putString(keyPrefPassword, "This is my secret!")
-        password = preferences.getString(keyPrefPassword, "none yet")
+        preferences.putString(KEY_PASSWORD, "This is my secret!")
+        password = preferences.getString(KEY_PASSWORD, "none yet")
         showShortToast(password)
-
-        val view = View(this)
-        view.setOnClickListener { (view: View) ->
-            Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show()
-        }
 
         val arrayList = arrayListOf(1, 2, 3, 4, 5, 6, 7)
         val evenNumbers = arrayList.filter() { (number: Int) -> number % 2 == 0 }
