@@ -4,7 +4,8 @@ A collection of Kotlin extensions for Android
 
 Save Preferences
 -------------------------
-**Java - Single Preference**
+<h4>Single Preference</h4>
+**Java**
 ````java
 public class WalkthroughActivity extends Activity {
 
@@ -21,7 +22,7 @@ public class WalkthroughActivity extends Activity {
 }
 ````
 
-**Kotlin - Single Preference (with extensions)**
+**Kotlin**
 ````kotlin
 public class WalkthroughActivity : Activity() {
   ...
@@ -33,6 +34,7 @@ public class WalkthroughActivity : Activity() {
 }
 ````
 
+<h4>Bulk Preferences</h4>
 **Kotlin - Bulk Preferences (with extensions)**
 ````kotlin
 getDefaultSharedPreferences().bulk()
@@ -41,8 +43,9 @@ getDefaultSharedPreferences().bulk()
   .applyBulk()
 ````
 
-Show Toast
+Toasts
 -------------------------
+<h4>Short Message</h4>
 **Java**
 ````java
 Toast.makeText(this, R.string.welcome, Toast.LENGTH_SHORT).show();
@@ -52,6 +55,21 @@ Toast.makeText(this, R.string.welcome, Toast.LENGTH_SHORT).show();
 ````kotlin
 // From a Context implementation
 showShortToast(R.string.welcome)
+````
+
+<h4>Custom Toast</h4>
+**Java**
+````java
+Toast toast = new Toast(this);
+toast.setView(view);
+toast.setDuration(Toast.LENGTH_LONG);
+toast.show();
+````
+
+**Kotlin (with extensions)**
+````kotlin
+// From a Context implementation
+showShortToast(view)
 ````
 
 System Services
