@@ -2,6 +2,57 @@ Android Kotlin Extensions
 =========================
 A collection of Kotlin extensions for Android
 
+Activities & Services
+-------------------------
+<h4>Example: Start an Activity</h4>
+**Java**
+````java
+Intent intent = new Intent(this, SuperPowersActivity.class);
+intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+startActivity(intent);
+````
+
+**Kotlin**
+````kotlin
+val flags = flags(Intent.FLAG_ACTIVITY_NEW_TASK, Intent.FLAG_ACTIVITY_CLEAR_TOP)
+startActivity<SuperPowersActivity>(flags)
+````
+
+Layout Inflation
+-------------------------
+**Java**
+````java
+LayoutInflater layoutInflater = LayoutInflater.from(this);
+View awesomeView = layoutInflater.inflate(R.layout.my_awesome_layout, null);
+````
+
+**Kotlin**
+````kotlin
+// From a Context implementation
+val awesomeView = inflateLayout(R.layout.my_awesome_layout)
+````
+
+Logs
+-------------------------
+<h4>Example: Logging</h4>
+**Java**
+````java
+String tag = this.getClass().getName();
+Log.i(tag, "Howdy! Info");
+Log.d(tag, "Knock knock! Debug");
+Log.e(tag, "Grim, Error");
+Log.wtf(tag, "Damn! WTF"); // Nope, not what you think. Refer the docs :P
+````
+
+**Kotlin**
+````kotlin
+i("Howdy! Info")
+d("Knock knock! Debug")
+e("Grim, Error")
+wtf("Damn! WTF")
+````
+
 Preferences
 -------------------------
 <h4>Example: Single Preference</h4>
@@ -26,7 +77,8 @@ getDefaultSharedPreferences().putBoolean("KEY_WALKTHROUGH_COMPLETE", complete)
 <h4>Example: Bulk Preferences</h4>
 **Kotlin**
 ````kotlin
-getDefaultSharedPreferences().bulk()
+getDefaultSharedPreferences()
+  .bulk()
   .putBoolean("KEY_WALKTHROUGH_COMPLETE", complete)
   .putString("KEY_LAST_USED", lastUsedIso8601Date)
   .applyBulk()
@@ -42,7 +94,6 @@ Toast.makeText(this, R.string.welcome, Toast.LENGTH_SHORT).show();
 
 **Kotlin**
 ````kotlin
-// From a Context implementation
 showShortToast(R.string.welcome)
 ````
 
@@ -57,7 +108,6 @@ toast.show();
 
 **Kotlin**
 ````kotlin
-// From a Context implementation
 showShortToast(view)
 ````
 
@@ -71,23 +121,22 @@ NotificationManager notificationManager = (NotificationManager) context.getSyste
 
 **Kotlin**
 ````kotlin
-// From a Context implementation
 val alarmManager = context.alarmManager()
 val notificationManager = context.notificationManager()
 ````
 
-Layout Inflation
+Resources
 -------------------------
+<h4>Example: Typeface from Assets</h4>
 **Java**
 ````java
-LayoutInflater layoutInflater = LayoutInflater.from(this);
-View awesomeView = layoutInflater.inflate(R.layout.my_awesome_layout, null);
+AssetManager assetManager = getAssets();
+Typeface sourceSansPro = Typeface.createFromAsset(assetManager, "fonts/source-sans-pro.ttf");
 ````
 
 **Kotlin**
 ````kotlin
-// From a Context implementation
-val awesomeView = inflateLayout(R.layout.my_awesome_layout)
+val sourceSansPro = typefaceFromAssets("fonts/source-sans-pro.ttf")
 ````
 
 More...
