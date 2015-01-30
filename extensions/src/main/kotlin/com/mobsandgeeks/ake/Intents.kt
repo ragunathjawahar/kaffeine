@@ -6,6 +6,7 @@ import android.app.Activity
 import android.app.Service
 import android.os.Bundle
 
+
 public fun Context.flags(flag: Int, vararg flags: Int): Int {
     var orFlags = flag;
     for (i in flags) {
