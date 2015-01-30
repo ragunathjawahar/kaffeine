@@ -29,7 +29,6 @@ View awesomeView = layoutInflater.inflate(R.layout.my_awesome_layout, null);
 
 **Kotlin**
 ````kotlin
-// From a Context implementation
 val awesomeView = inflateLayout(R.layout.my_awesome_layout)
 ````
 
@@ -70,7 +69,6 @@ if (Build.VERSION.SDK_INT < Build.VERSION_CODES.GINGERBREAD) {
 
 **Kotlin**
 ````kotlin
-// From a Context implementation
 getDefaultSharedPreferences().putBoolean("KEY_WALKTHROUGH_COMPLETE", complete)
 ````
 
