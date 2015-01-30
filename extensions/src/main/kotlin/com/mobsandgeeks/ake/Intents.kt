@@ -9,7 +9,7 @@ import android.os.Bundle
 public fun Context.flags(flag: Int, vararg flags: Int): Int {
     var orFlags = flag;
     for (i in flags) {
-        orFlags = orFlags.or(i)
+        orFlags = orFlags or i
     }
     return orFlags
 }
