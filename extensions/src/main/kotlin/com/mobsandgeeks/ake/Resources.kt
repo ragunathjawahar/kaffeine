@@ -9,6 +9,10 @@ public fun Context.getColor(colorResId: Int): Int {
     return resources().getColor(colorResId)
 }
 
+public fun Context.getStringArray(arrayResId: Int): Array<String> {
+    return resources().getStringArray(arrayResId)
+}
+
 public fun Context.typefaceFromAssets(assetPathResId: Int): Typeface {
     return typefaceFromAssets(getString(assetPathResId))
 }
