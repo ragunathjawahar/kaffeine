@@ -52,207 +52,157 @@ import android.net.wifi.WifiManager
 import android.view.WindowManager
 
 
-public fun Context.accessibilityManager(): AccessibilityManager? {
-    return getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager
-}
+fun Context.accessibilityManager(): AccessibilityManager? =
+        getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager
 
-public fun Context.accountManager(): AccountManager? {
-    return getSystemService(Context.ACCOUNT_SERVICE) as AccountManager
-}
+fun Context.accountManager(): AccountManager? =
+        getSystemService(Context.ACCOUNT_SERVICE) as AccountManager
 
-public fun Context.activityManager(): ActivityManager {
-    return getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-}
+fun Context.activityManager(): ActivityManager =
+        getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
 
-public fun Context.alarmManager(): AlarmManager {
-    return getSystemService(Context.ALARM_SERVICE) as AlarmManager
-}
+fun Context.alarmManager(): AlarmManager =
+        getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
-public fun Context.appWidgetManager(): AppWidgetManager? {
-    return getSystemService(Context.APPWIDGET_SERVICE) as AppWidgetManager
-}
+fun Context.appWidgetManager(): AppWidgetManager? =
+        getSystemService(Context.APPWIDGET_SERVICE) as AppWidgetManager
 
-public fun Context.appOpsManager(): AppOpsManager? {
-    return getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
-}
+fun Context.appOpsManager(): AppOpsManager? =
+        getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
 
-public fun Context.audioManager(): AudioManager {
-    return getSystemService(Context.AUDIO_SERVICE) as AudioManager
-}
+fun Context.audioManager(): AudioManager =
+        getSystemService(Context.AUDIO_SERVICE) as AudioManager
 
-public fun Context.batteryManager(): BatteryManager? {
-    return getSystemService(Context.BATTERY_SERVICE) as BatteryManager
-}
+fun Context.batteryManager(): BatteryManager? =
+        getSystemService(Context.BATTERY_SERVICE) as BatteryManager
 
-public fun Context.bluetoothAdapter(): BluetoothAdapter? {
-    return getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothAdapter
-}
+fun Context.bluetoothAdapter(): BluetoothAdapter? =
+        getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothAdapter
 
-public fun Context.cameraManager(): CameraManager? {
-    return getSystemService(Context.CAMERA_SERVICE) as CameraManager
-}
+fun Context.cameraManager(): CameraManager? =
+        getSystemService(Context.CAMERA_SERVICE) as CameraManager
 
-public fun Context.captioningManager(): CaptioningManager? {
-    return getSystemService(Context.CAPTIONING_SERVICE) as CaptioningManager
-}
+fun Context.captioningManager(): CaptioningManager? =
+        getSystemService(Context.CAPTIONING_SERVICE) as CaptioningManager
 
-public fun Context.clipboardManager(): ClipboardManager {
-    return getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-}
+fun Context.clipboardManager(): ClipboardManager =
+        getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
 
-public fun Context.connectivityManager(): ConnectivityManager {
-    return getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-}
+fun Context.connectivityManager(): ConnectivityManager =
+        getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
-public fun Context.consumerIrManager(): ConsumerIrManager? {
-    return getSystemService(Context.CONSUMER_IR_SERVICE) as ConsumerIrManager
-}
+fun Context.consumerIrManager(): ConsumerIrManager? =
+        getSystemService(Context.CONSUMER_IR_SERVICE) as ConsumerIrManager
 
-public fun Context.devicePolicyManager(): DevicePolicyManager? {
-    return getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
-}
+fun Context.devicePolicyManager(): DevicePolicyManager? =
+        getSystemService(Context.DEVICE_POLICY_SERVICE) as DevicePolicyManager
 
-public fun Context.displayManager(): DisplayManager? {
-    return getSystemService(Context.DISPLAY_SERVICE) as DisplayManager
-}
+fun Context.displayManager(): DisplayManager? =
+        getSystemService(Context.DISPLAY_SERVICE) as DisplayManager
 
-public fun Context.downloadManager(): DownloadManager? {
-    return getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-}
+fun Context.downloadManager(): DownloadManager? =
+        getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
 
-public fun Context.dropBoxManager(): DropBoxManager? {
-    return getSystemService(Context.DROPBOX_SERVICE) as DropBoxManager
-}
+fun Context.dropBoxManager(): DropBoxManager? =
+        getSystemService(Context.DROPBOX_SERVICE) as DropBoxManager
 
-public fun Context.inputMethodManager(): InputMethodManager? {
-    return getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-}
+fun Context.inputMethodManager(): InputMethodManager? =
+        getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
 
-public fun Context.inputManager(): InputManager? {
-    return getSystemService(Context.INPUT_SERVICE) as InputManager
-}
+fun Context.inputManager(): InputManager? =
+        getSystemService(Context.INPUT_SERVICE) as InputManager
 
-public fun Context.jobScheduler(): JobScheduler? {
-    return getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
-}
+fun Context.jobScheduler(): JobScheduler? =
+        getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
 
-public fun Context.keyguardManager(): KeyguardManager {
-    return getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
-}
+fun Context.keyguardManager(): KeyguardManager =
+        getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
 
-public fun Context.launcherApps(): LauncherApps? {
-    return getSystemService(Context.LAUNCHER_APPS_SERVICE) as LauncherApps
-}
+fun Context.launcherApps(): LauncherApps? =
+        getSystemService(Context.LAUNCHER_APPS_SERVICE) as LauncherApps
 
-public fun Context.layoutInflater(): LayoutInflater {
-    return getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-}
+fun Context.layoutInflater(): LayoutInflater =
+        getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
-public fun Context.locationManager(): LocationManager {
-    return getSystemService(Context.LOCATION_SERVICE) as LocationManager
-}
+fun Context.locationManager(): LocationManager =
+        getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
-public fun Context.mediaProjectionManager(): MediaProjectionManager? {
-    return getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
-}
+fun Context.mediaProjectionManager(): MediaProjectionManager? =
+        getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
 
-public fun Context.mediaRouter(): MediaRouter? {
-    return getSystemService(Context.MEDIA_ROUTER_SERVICE) as MediaRouter
-}
+fun Context.mediaRouter(): MediaRouter? =
+        getSystemService(Context.MEDIA_ROUTER_SERVICE) as MediaRouter
 
-public fun Context.mediaSessionManager(): MediaSessionManager? {
-    return getSystemService(Context.MEDIA_SESSION_SERVICE) as MediaSessionManager
-}
+fun Context.mediaSessionManager(): MediaSessionManager? =
+        getSystemService(Context.MEDIA_SESSION_SERVICE) as MediaSessionManager
 
-public fun Context.nfcManager(): NfcManager? {
-    return getSystemService(Context.NFC_SERVICE) as NfcManager
-}
+fun Context.nfcManager(): NfcManager? =
+        getSystemService(Context.NFC_SERVICE) as NfcManager
 
-public fun Context.notificationManager(): NotificationManager {
-    return getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-}
+fun Context.notificationManager(): NotificationManager =
+        getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-public fun Context.nsdManager(): NsdManager? {
-    return getSystemService(Context.NSD_SERVICE) as NsdManager
-}
+fun Context.nsdManager(): NsdManager? =
+        getSystemService(Context.NSD_SERVICE) as NsdManager
 
-public fun Context.powerManager(): PowerManager {
-    return getSystemService(Context.POWER_SERVICE) as PowerManager
-}
+fun Context.powerManager(): PowerManager =
+        getSystemService(Context.POWER_SERVICE) as PowerManager
 
-public fun Context.printManager(): PrintManager? {
-    return getSystemService(Context.PRINT_SERVICE) as PrintManager
-}
+fun Context.printManager(): PrintManager? =
+        getSystemService(Context.PRINT_SERVICE) as PrintManager
 
-public fun Context.restrictionsManager(): RestrictionsManager? {
-    return getSystemService(Context.RESTRICTIONS_SERVICE) as RestrictionsManager
-}
+fun Context.restrictionsManager(): RestrictionsManager? =
+        getSystemService(Context.RESTRICTIONS_SERVICE) as RestrictionsManager
 
-public fun Context.searchManager(): SearchManager {
-    return getSystemService(Context.SEARCH_SERVICE) as SearchManager
-}
+fun Context.searchManager(): SearchManager =
+        getSystemService(Context.SEARCH_SERVICE) as SearchManager
 
-public fun Context.sensorManager(): SensorManager {
-    return getSystemService(Context.SENSOR_SERVICE) as SensorManager
-}
+fun Context.sensorManager(): SensorManager =
+        getSystemService(Context.SENSOR_SERVICE) as SensorManager
 
-public fun Context.storageManager(): StorageManager? {
-    return getSystemService(Context.STORAGE_SERVICE) as StorageManager
-}
+fun Context.storageManager(): StorageManager? =
+        getSystemService(Context.STORAGE_SERVICE) as StorageManager
 
-public fun Context.telecomManager(): TelecomManager? {
-    return getSystemService(Context.TELECOM_SERVICE) as TelecomManager
-}
+fun Context.telecomManager(): TelecomManager? =
+        getSystemService(Context.TELECOM_SERVICE) as TelecomManager
 
-public fun Context.telephonyManager(): TelephonyManager {
-    return getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-}
+fun Context.telephonyManager(): TelephonyManager =
+        getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
 
-public fun Context.textServicesManager(): TextServicesManager? {
-    return getSystemService(Context.TEXT_SERVICES_MANAGER_SERVICE) as TextServicesManager
-}
+fun Context.textServicesManager(): TextServicesManager? =
+        getSystemService(Context.TEXT_SERVICES_MANAGER_SERVICE) as TextServicesManager
 
-public fun Context.tvInputManager(): TvInputManager? {
-    return getSystemService(Context.TV_INPUT_SERVICE) as TvInputManager
-}
+fun Context.tvInputManager(): TvInputManager? =
+        getSystemService(Context.TV_INPUT_SERVICE) as TvInputManager
 
-public fun Context.uiModeManager(): UiModeManager? {
-    return getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
-}
+fun Context.uiModeManager(): UiModeManager? =
+        getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
 
-public fun Context.usbManager(): UsbManager? {
-    return getSystemService(Context.USB_SERVICE) as UsbManager
-}
+fun Context.usbManager(): UsbManager? =
+        getSystemService(Context.USB_SERVICE) as UsbManager
 
-public fun Context.userManager(): UserManager? {
-    return getSystemService(Context.USER_SERVICE) as UserManager
-}
+fun Context.userManager(): UserManager? =
+        getSystemService(Context.USER_SERVICE) as UserManager
 
-public fun Context.vibrator(): Vibrator {
-    return getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-}
+fun Context.vibrator(): Vibrator =
+        getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
-public fun Context.wallpaperService(): WallpaperService {
-    return getSystemService(Context.WALLPAPER_SERVICE) as WallpaperService
-}
+fun Context.wallpaperService(): WallpaperService =
+        getSystemService(Context.WALLPAPER_SERVICE) as WallpaperService
 
-public fun Context.wifiP2pManager(): WifiP2pManager? {
-    return getSystemService(Context.WIFI_P2P_SERVICE) as WifiP2pManager
-}
+fun Context.wifiP2pManager(): WifiP2pManager? =
+        getSystemService(Context.WIFI_P2P_SERVICE) as WifiP2pManager
 
-public fun Context.wifiManager(): WifiManager {
-    return getSystemService(Context.WIFI_SERVICE) as WifiManager
-}
+fun Context.wifiManager(): WifiManager =
+        getSystemService(Context.WIFI_SERVICE) as WifiManager
 
-public fun Context.windowService(): WindowManager {
-    return getSystemService(Context.WINDOW_SERVICE) as WindowManager
-}
+fun Context.windowService(): WindowManager =
+        getSystemService(Context.WINDOW_SERVICE) as WindowManager
 
 /*
  * -----------------------------------------------------------------------------
  *  Private methods
  * -----------------------------------------------------------------------------
  */
-private fun Context.getSystemService(serviceName: String): Any? {
-    return this.getSystemService(serviceName)
-}
+private fun Context.getSystemService(serviceName: String): Any? =
+        this.getSystemService(serviceName)
