@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    buildToolsVersion "22"
 
     defaultConfig {
         applicationId "com.mobsandgeeks.ake.showcase"
