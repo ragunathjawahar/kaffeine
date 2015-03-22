@@ -1,6 +1,6 @@
-Android Kotlin Extensions
+Android Extensions
 =========================
-A collection of Kotlin extensions for Android
+A collection of Android extensions written in Kotlin.
 
 Activities & Services
 -------------------------
