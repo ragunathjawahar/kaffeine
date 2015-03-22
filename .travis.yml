@@ -7,3 +7,7 @@ env:
 android:
   components:
     - build-tools-21.1.1
+
+before_script:
+  # Grant execution permissions to Gradle wrapper
+  - chmod +x gradlew
