@@ -17,7 +17,7 @@ public fun Context.inflateLayout(layoutResId: Int, parent: ViewGroup, attachToRo
 
 /*
  * -----------------------------------------------------------------------------
- *  Private methods
+ *  Private functions
  * -----------------------------------------------------------------------------
  */
 private fun inflateView(context: Context, layoutResId: Int, parent: ViewGroup?,

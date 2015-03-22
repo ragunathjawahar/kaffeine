@@ -71,7 +71,7 @@ private var SharedPreferences.bulkEditor: SharedPreferences.Editor?
 
 /*
  * -----------------------------------------------------------------------------
- *  Private methods
+ *  Private functions
  * -----------------------------------------------------------------------------
  */
 private fun SharedPreferences.getEditor(): SharedPreferences.Editor {

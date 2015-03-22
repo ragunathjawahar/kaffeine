@@ -1,11 +1,11 @@
 package com.mobsandgeeks.ake
 
-import android.content.Context
-import android.content.Intent
 import android.app.Activity
 import android.app.Service
-import android.os.Bundle
 import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 
 
 public fun Context.flags(flag: Int, vararg flags: Int): Int {

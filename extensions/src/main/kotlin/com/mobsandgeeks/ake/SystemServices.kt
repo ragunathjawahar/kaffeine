@@ -201,7 +201,7 @@ public fun Context.windowService(): WindowManager =
 
 /*
  * -----------------------------------------------------------------------------
- *  Private methods
+ *  Private functions
  * -----------------------------------------------------------------------------
  */
 private fun Context.getSystemService(serviceName: String): Any? =

@@ -1,15 +1,14 @@
 package com.mobsandgeeks.ake.showcase
 
 import android.app.Activity
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.content.DialogInterface
+import android.widget.TextView
 import com.mobsandgeeks.ake.getDefaultSharedPreferences
 import com.mobsandgeeks.ake.putString
 import com.mobsandgeeks.ake.showShortToast
-import android.widget.TextView
-import butterknife.bindView
 
 
 public class ExtensionsActivity : Activity(), DialogInterface.OnClickListener {
