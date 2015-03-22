@@ -12,15 +12,15 @@ import com.mobsandgeeks.ake.showShortToast
 
 
 public class ExtensionsActivity : Activity(), DialogInterface.OnClickListener {
-    class object {
-        val KEY_PASSWORD = "KEY_PASSWORD"
-    }
+    val KEY_PASSWORD = "KEY_PASSWORD"
 
-    val helloWorldTextView: TextView by bindView(R.id.helloWorldTextView)
+    var helloWorldTextView: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super<Activity>.onCreate(savedInstanceState)
         setContentView(R.layout.activity_extensions)
+
+        helloWorldTextView = findViewById(R.id.helloWorldTextView) as TextView
 
         val preferences = getDefaultSharedPreferences()
 
