@@ -32,7 +32,7 @@ public class ExtensionsActivity : Activity(), DialogInterface.OnClickListener {
         showShortToast(password)
 
         val arrayList = arrayListOf(1, 2, 3, 4, 5, 6, 7)
-        val evenNumbers = arrayList.filter() { (number: Int) -> number % 2 == 0 }
+        val evenNumbers = arrayList.filter { number: Int -> number % 2 == 0 }
         println(evenNumbers)
     }
 
