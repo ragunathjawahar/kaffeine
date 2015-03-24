@@ -3,50 +3,74 @@ package com.mobsandgeeks.shorthand
 import android.util.Log
 
 
-public fun Any.v(tag: String, message: String) {
-    Log.v(tag, message)
-}
-
-public fun Any.d(tag: String, message: String) {
-    Log.d(tag, message)
-}
-
-public fun Any.i(tag: String, message: String) {
-    Log.i(tag, message)
-}
-
-public fun Any.w(tag: String, message: String) {
-    Log.w(tag, message)
-}
-
-public fun Any.e(tag: String, message: String) {
-    Log.e(tag, message)
-}
-
-public fun Any.wtf(tag: String, message: String) {
-    Log.wtf(tag, message)
-}
-
 public fun Any.v(message: String) {
-    Log.v(this.javaClass.getName(), message)
+    v(this.javaClass.getName(), message)
 }
 
 public fun Any.d(message: String) {
-    Log.d(this.javaClass.getName(), message)
+    d(this.javaClass.getName(), message)
 }
 
 public fun Any.i(message: String) {
-    Log.i(this.javaClass.getName(), message)
+    i(this.javaClass.getName(), message)
 }
 
 public fun Any.w(message: String) {
-    Log.w(this.javaClass.getName(), message)
+    w(this.javaClass.getName(), message)
 }
 
 public fun Any.e(message: String) {
-    Log.e(this.javaClass.getName(), message)
+    e(this.javaClass.getName(), message)
 }
 
 public fun Any.wtf(message: String) {
-    Log.wtf(this.javaClass.getName(), message)
+    wtf(this.javaClass.getName(), message)
+}
+
+public fun Any.v(tag: String, message: String) {
+    v(tag, message, null)
+}
+
+public fun Any.d(tag: String, message: String) {
+    d(tag, message, null)
+}
+
+public fun Any.i(tag: String, message: String) {
+    i(tag, message, null)
+}
+
+public fun Any.w(tag: String, message: String) {
+    w(tag, message, null)
+}
+
+public fun Any.e(tag: String, message: String) {
+    e(tag, message, null)
+}
+
+public fun Any.wtf(tag: String, message: String) {
+    wtf(tag, message, null)
+}
+
+public fun Any.v(tag: String, message: String, exception: Exception?) {
+    Log.v(tag, message, exception)
+}
+
+public fun Any.d(tag: String, message: String, exception: Exception?) {
+    Log.d(tag, message, exception)
+}
+
+public fun Any.i(tag: String, message: String, exception: Exception?) {
+    Log.i(tag, message, exception)
+}
+
+public fun Any.w(tag: String, message: String, exception: Exception?) {
+    Log.w(tag, message, exception)
+}
+
+public fun Any.e(tag: String, message: String, exception: Exception?) {
+    Log.e(tag, message, exception)
+}
+
+public fun Any.wtf(tag: String, message: String, exception: Exception?) {
+    Log.wtf(tag, message, exception)
 }
