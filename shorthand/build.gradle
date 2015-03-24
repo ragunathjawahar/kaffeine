@@ -1,5 +1,9 @@
+import com.android.builder.core.BuilderConstants
+
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+
+apply from: '../gradle-mvn-push.gradle'
 
 android {
     compileSdkVersion 21
@@ -11,11 +15,19 @@ android {
         versionCode 1
         versionName "1.0"
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_6
+    }
+    libraryVariants.all { variant ->
+        def name = variant.buildType.name
+        if (name.equals(BuilderConstants.DEBUG)) {
+            return; // Skip debug builds.
         }
+        def task = project.tasks.create "jar${name.capitalize()}", Jar
+        task.dependsOn variant.javaCompile
+        task.from variant.javaCompile.destinationDir
+        artifacts.add('archives', task);
     }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'

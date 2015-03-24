@@ -141,6 +141,33 @@ More...
 -------------------------
 More extensions under development.
 
+Maven
+---------------------
+    <dependency>
+        <groupId>com.mobsandgeeks</groupId>
+        <artifactId>shorthand</artifactId>
+        <version>0.1-SNAPSHOT</version>
+    </dependency>
+
+Gradle
+---------------------
+    dependencies {
+        compile 'com.mobsandgeeks:shorthand:0.1-SNAPSHOT'
+    }
+
+Snapshots
+---------------------
+In your `{project_base}/build.gradle` file, include the following.
+
+    allprojects {
+        repositories {
+            mavenCentral()
+            maven {
+                url "https://oss.sonatype.org/content/repositories/snapshots/"
+            }
+        }
+    }
+
 License
 -------------------------
     Copyright 2015 Mobs & Geeks
