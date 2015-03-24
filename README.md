@@ -1,4 +1,4 @@
-Android Extensions
+Shorthand
 =========================
 A collection of Android extensions written in Kotlin.
 
