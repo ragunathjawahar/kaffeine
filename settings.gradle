@@ -1,1 +1,1 @@
-include ':extensions', ':showcase'
+include ':shorthand', ':shorthand-showcase'
