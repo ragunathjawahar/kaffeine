@@ -11,37 +11,61 @@ public fun Context.dialog(init: Dialog.() -> Unit): Dialog {
     return dialog
 }
 
-class Dialog(val context: Context) {
+public class Dialog(val context: Context) {
     private val builder = AlertDialog.Builder(context)
 
-    var title: Any? = null
+    var titleResId: Int = -1
         set(value) {
-            $title = value
-            builder.setTitle(getStringFrom(value))
+            $titleResId = value
+            builder.setTitle($titleResId)
         }
 
-    var message: Any? = null
+    var title: String? = null
         set(value) {
-            $message = message
-            builder.setMessage(getStringFrom(value))
+            $title = value
+            builder.setTitle($title)
+        }
+
+    var messageResId: Int = -1
+        set(value) {
+            $messageResId = value
+            builder.setMessage($messageResId)
+        }
+
+    var message: String? = null
+        set(value) {
+            $message = value
+            builder.setMessage($message)
         }
 
     var cancellable: Boolean = true
         set(value) {
             $cancellable = value
-            builder.setCancelable(value)
+            builder.setCancelable($cancellable)
         }
 
-    public fun positiveButton(text: Any?, listener: ((DialogInterface, Int) -> Unit)?) {
-        builder.setPositiveButton(getStringFrom(text), listener)
+    public fun positiveButton(textResId: Int, listener: ((DialogInterface, Int) -> Unit)?) {
+        positiveButton(context.getString(textResId), listener)
     }
 
-    public fun negativeButton(text: Any?, listener: ((DialogInterface, Int) -> Unit)?) {
-        builder.setNegativeButton(getStringFrom(text), listener)
+    public fun positiveButton(text: String, listener: ((DialogInterface, Int) -> Unit)?) {
+        builder.setPositiveButton(text, listener)
     }
 
-    public fun neutralButton(text: Any?, listener: ((DialogInterface, Int) -> Unit)?) {
-        builder.setNeutralButton(getStringFrom(text), listener)
+    public fun negativeButton(textResId: Int, listener: ((DialogInterface, Int) -> Unit)?) {
+        negativeButton(context.getString(textResId), listener)
+    }
+
+    public fun negativeButton(text: String, listener: ((DialogInterface, Int) -> Unit)?) {
+        builder.setNegativeButton(text, listener)
+    }
+
+    public fun neutralButton(textResId: Int, listener: ((DialogInterface, Int) -> Unit)?) {
+        neutralButton(context.getString(textResId), listener)
+    }
+
+    public fun neutralButton(text: String, listener: ((DialogInterface, Int) -> Unit)?) {
+        builder.setNeutralButton(text, listener)
     }
 
     public fun onDismissListener(listener: ((DialogInterface) -> Unit)?) {
@@ -54,10 +78,5 @@ class Dialog(val context: Context) {
 
     public fun show() {
         builder.create().show()
-    }
-
-    private fun getStringFrom(someObject: Any?): String? {
-        return if (someObject is Int)
-            context.getString(someObject) else someObject?.toString()
     }
 }
