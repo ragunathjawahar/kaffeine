@@ -1,12 +1,11 @@
 package com.mobsandgeeks.shorthand.showcase
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
+import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.mobsandgeeks.shorthand.*
 
@@ -44,10 +43,18 @@ public class ShorthandActivity : Activity(), DialogInterface.OnClickListener {
         })
         builder.create().show()
 */
-        val sampleDialog = dialog {
-            titleResId = R.string.app_name
-            message = "Divine Comedy!"
-            cancellable = true
+
+        val array = arrayListOf("Hello", "World", "How", "Are", "You")
+        val arrayAdapter = ArrayAdapter(this@ShorthandActivity,
+                android.R.layout.simple_list_item_1, array)
+
+        val sampleDialog = alertDialog {
+            titleId = R.string.app_name
+            cancelable = true
+
+            adapter(arrayAdapter) { dialog, which ->
+                showShortToast(arrayAdapter.getItem(which))
+            }
 
             positiveButton(android.R.string.ok) { dialog, which ->
                 showShortToast(evenNumbers.toString())
@@ -57,9 +64,10 @@ public class ShorthandActivity : Activity(), DialogInterface.OnClickListener {
                 showShortToast("Cancelled")
             }
 
-            neutralButton("Hell") { dialog, which ->
-                showLongToast("The deepest places in hell are reserved for those who maintain"
-                        + " neutrality in times of moral crisis.")
+            neutralButton("Neutral") { dialog, which ->
+                showLongToast("The deepest places in hell are reserved "
+                        + "for those who maintain "
+                        + "neutrality at times of moral crisis.")
             }
 
             onDismissListener {
@@ -72,6 +80,18 @@ public class ShorthandActivity : Activity(), DialogInterface.OnClickListener {
         }
 
         helloWorldTextView?.setOnClickListener { sampleDialog.show() }
+
+        /*
+        AlertDialog.Builder(this)
+            .setTitle(R.string.app_name)
+            .setMessage("Divine Comedy!")
+            .setCancelable(false)
+            .setAdapter(arrayAdapter) { dialog, which ->
+                showShortToast(arrayAdapter.getItem(which))
+            }
+            .create()
+            .show()
+        */
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

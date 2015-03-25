@@ -3,9 +3,11 @@ package com.mobsandgeeks.shorthand
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.database.Cursor
+import android.widget.ListAdapter
 
 
-public fun Context.dialog(init: Dialog.() -> Unit): Dialog {
+public fun Context.alertDialog(init: Dialog.() -> Unit): Dialog {
     val dialog = Dialog(this)
     dialog.init()
     return dialog
@@ -14,10 +16,10 @@ public fun Context.dialog(init: Dialog.() -> Unit): Dialog {
 public class Dialog(val context: Context) {
     private val builder = AlertDialog.Builder(context)
 
-    var titleResId: Int = -1
+    var titleId: Int = -1
         set(value) {
-            $titleResId = value
-            builder.setTitle($titleResId)
+            $titleId = value
+            builder.setTitle($titleId)
         }
 
     var title: String? = null
@@ -26,10 +28,10 @@ public class Dialog(val context: Context) {
             builder.setTitle($title)
         }
 
-    var messageResId: Int = -1
+    var messageId: Int = -1
         set(value) {
-            $messageResId = value
-            builder.setMessage($messageResId)
+            $messageId = value
+            builder.setMessage($messageId)
         }
 
     var message: String? = null
@@ -38,30 +40,39 @@ public class Dialog(val context: Context) {
             builder.setMessage($message)
         }
 
-    var cancellable: Boolean = true
+    var cancelable: Boolean = true
         set(value) {
-            $cancellable = value
-            builder.setCancelable($cancellable)
+            $cancelable = value
+            builder.setCancelable($cancelable)
         }
 
-    public fun positiveButton(textResId: Int, listener: ((DialogInterface, Int) -> Unit)?) {
-        positiveButton(context.getString(textResId), listener)
+    public fun adapter(adapter: ListAdapter, listener: (DialogInterface, Int) -> Unit) {
+        builder.setAdapter(adapter, listener)
+    }
+
+    public fun cursor(cursor: Cursor, listener: (DialogInterface, Int) -> Unit,
+            labelColumn: String) {
+        builder.setCursor(cursor, listener, labelColumn)
+    }
+
+    public fun positiveButton(textId: Int, listener: ((DialogInterface, Int) -> Unit)?) {
+        positiveButton(context.getString(textId), listener)
     }
 
     public fun positiveButton(text: String, listener: ((DialogInterface, Int) -> Unit)?) {
         builder.setPositiveButton(text, listener)
     }
 
-    public fun negativeButton(textResId: Int, listener: ((DialogInterface, Int) -> Unit)?) {
-        negativeButton(context.getString(textResId), listener)
+    public fun negativeButton(textId: Int, listener: ((DialogInterface, Int) -> Unit)?) {
+        negativeButton(context.getString(textId), listener)
     }
 
     public fun negativeButton(text: String, listener: ((DialogInterface, Int) -> Unit)?) {
         builder.setNegativeButton(text, listener)
     }
 
-    public fun neutralButton(textResId: Int, listener: ((DialogInterface, Int) -> Unit)?) {
-        neutralButton(context.getString(textResId), listener)
+    public fun neutralButton(textId: Int, listener: ((DialogInterface, Int) -> Unit)?) {
+        neutralButton(context.getString(textId), listener)
     }
 
     public fun neutralButton(text: String, listener: ((DialogInterface, Int) -> Unit)?) {
