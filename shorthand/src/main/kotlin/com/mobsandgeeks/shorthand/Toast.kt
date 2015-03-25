@@ -55,7 +55,7 @@ public fun Context.longToast(view: View): Toast {
 
 /*
  * -----------------------------------------------------------------------------
- *  Private methods
+ *  Private functions
  * -----------------------------------------------------------------------------
  */
 private fun createToast(context: Context, message: String?, length: Int): Toast {

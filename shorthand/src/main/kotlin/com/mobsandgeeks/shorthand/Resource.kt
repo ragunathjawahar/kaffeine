@@ -59,7 +59,7 @@ public fun Context.typefaceFromAssets(assetPath: String): Typeface =
 
 /*
  * -----------------------------------------------------------------------------
- *  Private methods
+ *  Private functions
  * -----------------------------------------------------------------------------
  */
 private fun Context.resources(): Resources = this.getResources()
