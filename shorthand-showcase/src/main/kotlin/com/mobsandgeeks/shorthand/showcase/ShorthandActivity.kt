@@ -11,7 +11,7 @@ import android.widget.TextView
 import com.mobsandgeeks.shorthand.*
 
 
-public class ExtensionsActivity : Activity(), DialogInterface.OnClickListener {
+public class ShorthandActivity : Activity(), DialogInterface.OnClickListener {
     val KEY_PASSWORD = "KEY_PASSWORD"
 
     var helloWorldTextView: TextView? = null
@@ -45,12 +45,12 @@ public class ExtensionsActivity : Activity(), DialogInterface.OnClickListener {
         builder.create().show()
 */
         val sampleDialog = dialog {
-            title = R.string.app_name
+            titleResId = R.string.app_name
             message = "Divine Comedy!"
             cancellable = true
 
-            positiveButton("Ok") { dialog, which ->
-                showShortToast("Hello World!")
+            positiveButton(android.R.string.ok) { dialog, which ->
+                showShortToast(evenNumbers.toString())
             }
 
             negativeButton("Cancel") { dialog, which ->
@@ -59,7 +59,7 @@ public class ExtensionsActivity : Activity(), DialogInterface.OnClickListener {
 
             neutralButton("Hell") { dialog, which ->
                 showLongToast("The deepest places in hell are reserved for those who maintain"
-                        + " neutrality in times of crisis.  ")
+                        + " neutrality in times of moral crisis.")
             }
 
             onDismissListener {
