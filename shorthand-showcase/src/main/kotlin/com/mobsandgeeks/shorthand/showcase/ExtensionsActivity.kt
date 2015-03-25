@@ -1,14 +1,14 @@
 package com.mobsandgeeks.shorthand.showcase
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.TextView
-import com.mobsandgeeks.shorthand.getDefaultSharedPreferences
-import com.mobsandgeeks.shorthand.putString
-import com.mobsandgeeks.shorthand.showShortToast
+import com.mobsandgeeks.shorthand.*
 
 
 public class ExtensionsActivity : Activity(), DialogInterface.OnClickListener {
@@ -33,7 +33,45 @@ public class ExtensionsActivity : Activity(), DialogInterface.OnClickListener {
 
         val arrayList = arrayListOf(1, 2, 3, 4, 5, 6, 7)
         val evenNumbers = arrayList.filter { number: Int -> number % 2 == 0 }
-        println(evenNumbers)
+/*
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(R.string.app_name)
+        builder.setMessage(evenNumbers.toString())
+        builder.setPositiveButton(android.R.string.ok, object: DialogInterface.OnClickListener {
+            override fun onClick(dialog: DialogInterface, which: Int) {
+                showShortToast("Hello World!")
+            }
+        })
+        builder.create().show()
+*/
+        val sampleDialog = dialog {
+            title = R.string.app_name
+            message = "Divine Comedy!"
+            cancellable = true
+
+            positiveButton("Ok") { dialog, which ->
+                showShortToast("Hello World!")
+            }
+
+            negativeButton("Cancel") { dialog, which ->
+                showShortToast("Cancelled")
+            }
+
+            neutralButton("Hell") { dialog, which ->
+                showLongToast("The deepest places in hell are reserved for those who maintain"
+                        + " neutrality in times of crisis.  ")
+            }
+
+            onDismissListener {
+                showShortToast("Dismissed :P")
+            }
+
+            onCancelListener {
+                showShortToast("Cancelled ;)")
+            }
+        }
+
+        helloWorldTextView?.setOnClickListener { sampleDialog.show() }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
