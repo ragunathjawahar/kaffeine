@@ -52,7 +52,7 @@ public class ShorthandActivity : Activity(), DialogInterface.OnClickListener {
             titleId = R.string.app_name
             cancelable = true
 
-            adapter(arrayAdapter) { dialog, which ->
+            items(R.array.dan_brown_books) { dialog, which ->
                 showShortToast(arrayAdapter.getItem(which))
             }
 
