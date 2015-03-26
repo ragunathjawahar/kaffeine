@@ -39,11 +39,11 @@ public fun Context.getLayout(id: Int): XmlResourceParser =
 public fun Context.getMovie(id: Int): Movie =
         resources().getMovie(id)
 
-public fun Context.getQuantityString(id: Int, quantity: Int, vararg formatArgs: Any): String =
-        resources().getQuantityString(id, quantity, formatArgs)
-
 public fun Context.getQuantityString(id: Int, quantity: Int): String =
         resources().getQuantityString(id, quantity)
+
+public fun Context.getQuantityString(id: Int, quantity: Int, vararg formatArgs: Any): String =
+        resources().getQuantityString(id, quantity, formatArgs)
 
 public fun Context.getQuantityText(id: Int, quantity: Int): CharSequence =
         resources().getQuantityText(id, quantity)
