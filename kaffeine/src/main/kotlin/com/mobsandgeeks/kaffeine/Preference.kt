@@ -1,4 +1,4 @@
-package com.mobsandgeeks.shorthand
+package com.mobsandgeeks.kaffeine
 
 import android.content.Context
 import android.content.SharedPreferences

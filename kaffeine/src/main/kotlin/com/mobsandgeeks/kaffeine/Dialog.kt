@@ -1,4 +1,4 @@
-package com.mobsandgeeks.shorthand
+package com.mobsandgeeks.kaffeine
 
 import android.app.AlertDialog
 import android.content.Context

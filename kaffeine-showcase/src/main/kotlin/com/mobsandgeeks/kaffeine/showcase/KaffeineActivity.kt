@@ -1,4 +1,4 @@
-package com.mobsandgeeks.shorthand.showcase
+package com.mobsandgeeks.kaffeine.showcase
 
 import android.app.Activity
 import android.content.DialogInterface
@@ -7,10 +7,10 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.TextView
-import com.mobsandgeeks.shorthand.*
+import com.mobsandgeeks.kaffeine.*
 
 
-public class ShorthandActivity : Activity(), DialogInterface.OnClickListener {
+public class KaffeineActivity : Activity(), DialogInterface.OnClickListener {
     val KEY_PASSWORD = "KEY_PASSWORD"
 
     var helloWorldTextView: TextView? = null
@@ -45,7 +45,7 @@ public class ShorthandActivity : Activity(), DialogInterface.OnClickListener {
 */
 
         val array = arrayListOf("Hello", "World", "How", "Are", "You")
-        val arrayAdapter = ArrayAdapter(this@ShorthandActivity,
+        val arrayAdapter = ArrayAdapter(this@KaffeineActivity,
                 android.R.layout.simple_list_item_1, array)
 
         val sampleDialog = alertDialog {

@@ -1,4 +1,4 @@
-package com.mobsandgeeks.shorthand
+package com.mobsandgeeks.kaffeine
 
 import android.text.Html
 import android.widget.TextView

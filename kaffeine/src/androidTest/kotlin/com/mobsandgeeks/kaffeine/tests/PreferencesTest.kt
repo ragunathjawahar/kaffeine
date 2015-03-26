@@ -1,4 +1,4 @@
-package com.mobsandgeeks.shorthand.tests
+package com.mobsandgeeks.kaffeine.tests
 
 import android.test.AndroidTestCase
 import kotlin.test.assertTrue

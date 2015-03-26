@@ -1,4 +1,4 @@
-package com.mobsandgeeks.shorthand
+package com.mobsandgeeks.kaffeine
 
 import android.app.Activity
 import android.app.Service

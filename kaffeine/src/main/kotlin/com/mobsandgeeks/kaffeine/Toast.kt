@@ -1,4 +1,4 @@
-package com.mobsandgeeks.shorthand
+package com.mobsandgeeks.kaffeine
 
 import android.widget.Toast
 import android.content.Context
@@ -13,11 +13,11 @@ public fun Context.showLongToast(messageResId: Int) {
     longToast(messageResId).show()
 }
 
-public fun Context.showShortToast(message: String) {
+public fun Context.showShortToast(message: String?) {
     shortToast(message).show()
 }
 
-public fun Context.showLongToast(message: String) {
+public fun Context.showLongToast(message: String?) {
     longToast(message).show()
 }
 
