@@ -15,24 +15,16 @@ public class KaffeineActivity : Activity(), DialogInterface.OnClickListener {
 
     var helloWorldTextView: TextView? = null
 
-    val appName: Array<String>? by stringArray(R.array.dan_brown_books)
+    val appName: Array<String> by stringArray(R.array.dan_brown_books)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super<Activity>.onCreate(savedInstanceState)
         setContentView(R.layout.activity_extensions)
 
-        showShortToast(appName?.asList().toString())
-
         helloWorldTextView = findViewById(R.id.helloWorldTextView) as TextView
 
         val preferences = getDefaultSharedPreferences()
-
-        var password = preferences.getString(KEY_PASSWORD, "none yet")
-        showShortToast(password)
-
         preferences.putString(KEY_PASSWORD, "This is my secret!")
-        password = preferences.getString(KEY_PASSWORD, "none yet")
-        showShortToast(password)
 
         val arrayList = arrayListOf(1, 2, 3, 4, 5, 6, 7)
         val evenNumbers = arrayList.filter { number: Int -> number % 2 == 0 }
