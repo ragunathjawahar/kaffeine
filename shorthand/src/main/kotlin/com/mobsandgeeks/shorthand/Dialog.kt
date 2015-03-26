@@ -132,6 +132,26 @@ public class Dialog(val context: Context) {
         builder.setPositiveButton(text, listener)
     }
 
+    public fun singleChoiceItems(items: Array<CharSequence>, checkedItem: Int,
+            listener: (DialogInterface, Int) -> Unit) {
+        builder.setSingleChoiceItems(items, checkedItem, listener)
+    }
+
+    public fun singleChoiceItems(items: ListAdapter, checkedItem: Int,
+            listener: (DialogInterface, Int) -> Unit) {
+        builder.setSingleChoiceItems(items, checkedItem, listener)
+    }
+
+    public fun singleChoiceItems(itemsId: Int, checkedItem: Int,
+            listener: (DialogInterface, Int) -> Unit) {
+        builder.setSingleChoiceItems(itemsId, checkedItem, listener)
+    }
+
+    public fun singleChoiceItems(cursor: Cursor, checkedItem: Int, labelColumn: String,
+            listener: (DialogInterface, Int) -> Unit) {
+        builder.setSingleChoiceItems(cursor, checkedItem, labelColumn, listener)
+    }
+
     public fun negativeButton(textId: Int, listener: ((DialogInterface, Int) -> Unit)?) {
         negativeButton(context.getString(textId), listener)
     }
