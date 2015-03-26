@@ -109,6 +109,21 @@ public class Dialog(val context: Context) {
         builder.setItems(items, listener)
     }
 
+    public fun multiChoiceItems(items: Array<CharSequence>, checkedItems: BooleanArray,
+            listener: (DialogInterface, Int, Boolean) -> Unit) {
+        builder.setMultiChoiceItems(items, checkedItems, listener)
+    }
+
+    public fun multiChoiceItems(cursor: Cursor, isCheckedColumn: String,
+            labelColumn: String, listener: (DialogInterface, Int, Boolean) -> Unit) {
+        builder.setMultiChoiceItems(cursor, isCheckedColumn, labelColumn, listener)
+    }
+
+    public fun multiChoiceItems(itemsId: Int, checkedItems: BooleanArray,
+            listener: (DialogInterface, Int, Boolean) -> Unit) {
+        builder.setMultiChoiceItems(itemsId, checkedItems, listener)
+    }
+
     public fun positiveButton(textId: Int, listener: ((DialogInterface, Int) -> Unit)?) {
         positiveButton(context.getString(textId), listener)
     }
