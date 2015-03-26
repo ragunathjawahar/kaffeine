@@ -182,4 +182,4 @@ private class TypefaceDelegate(context: Context, private val assetPathId: Int)
 }
 
 private abstract class ResourceDelegate<T>(val context: Context, val resId: Int)
-        : ReadOnlyLazyDelegate<T, Any>
+        : ReadOnlyLazyDelegate<Any, T>

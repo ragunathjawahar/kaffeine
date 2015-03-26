@@ -25,7 +25,7 @@ import kotlin.properties.ReadOnlyProperty
  * @param R the type of object which owns the delegated property.
  * @param T the type of the property value.
  */
-public trait ReadOnlyLazyDelegate<T, R> : ReadOnlyProperty<R, T> {
+public trait ReadOnlyLazyDelegate<R, T> : ReadOnlyProperty<R, T> {
     protected fun lazy(): T
 
     override fun get(thisRef: R, desc: PropertyMetadata): T = lazy()
