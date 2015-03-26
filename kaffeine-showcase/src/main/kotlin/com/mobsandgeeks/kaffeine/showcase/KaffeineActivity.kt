@@ -15,9 +15,13 @@ public class KaffeineActivity : Activity(), DialogInterface.OnClickListener {
 
     var helloWorldTextView: TextView? = null
 
+    val appName: Array<String>? by stringArray(R.array.dan_brown_books)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super<Activity>.onCreate(savedInstanceState)
         setContentView(R.layout.activity_extensions)
+
+        showShortToast(appName?.asList().toString())
 
         helloWorldTextView = findViewById(R.id.helloWorldTextView) as TextView
 
