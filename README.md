@@ -1,6 +1,6 @@
 Kaffeine
 ========
-Kaffeine is a Kotlin Android library to accelerate app development.
+Kaffeine is a Kotlin-flavored Android library for accelerating development.
 
 Activities & Services
 ---------------------
