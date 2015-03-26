@@ -11,8 +11,13 @@ public fun Context.string(resId: Int): ReadOnlyProperty<Any, String?> =
 public fun Context.stringArray(resId: Int): ReadOnlyProperty<Any, Array<String>?> =
         StringArrayResDelegate(this, resId)
 
-
-class StringResDelegate(context: Context, resId: Int) : ResourceDelegate<String?>(context, resId) {
+/*
+ * -----------------------------------------------------------------------------
+ *  Delegates
+ * -----------------------------------------------------------------------------
+ */
+private class StringResDelegate(context: Context, resId: Int)
+        : ResourceDelegate<String?>(context, resId) {
 
     override fun get(thisRef: Any, desc: PropertyMetadata): String? =
             context.getString(resId)
