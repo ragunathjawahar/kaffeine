@@ -49,29 +49,29 @@ public class KaffeineActivity : Activity(), DialogInterface.OnClickListener {
             cancelable = true
 
             singleChoiceItems(R.array.dan_brown_books, 2) { dialog, which ->
-                showShortToast(arrayAdapter.getItem(which))
+                showToastShort(arrayAdapter.getItem(which))
             }
 
             positiveButton(android.R.string.ok) { dialog, which ->
-                showShortToast(evenNumbers.toString())
+                showToastShort(evenNumbers.toString())
             }
 
             negativeButton("Cancel") { dialog, which ->
-                showShortToast("Cancelled")
+                showToastShort("Cancelled")
             }
 
             neutralButton("Neutral") { dialog, which ->
-                showLongToast("The deepest places in hell are reserved "
+                showToastLong("The deepest places in hell are reserved "
                         + "for those who maintain "
                         + "neutrality at times of moral crisis.")
             }
 
             onDismissListener {
-                showShortToast("Dismissed :P")
+                showToastShort("Dismissed :P")
             }
 
             onCancelListener {
-                showShortToast("Cancelled ;)")
+                showToastShort("Cancelled ;)")
             }
         }
 
