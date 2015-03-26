@@ -1,1 +1,1 @@
-include ':shorthand', ':shorthand-showcase'
+include ':kaffeine', ':kaffeine-showcase'

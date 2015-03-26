@@ -1,9 +1,9 @@
-Shorthand
-=========================
-A collection of Android extensions written in Kotlin.
+Kaffeine
+========
+Kaffeine is a Kotlin Android library to accelerate app development.
 
 Activities & Services
--------------------------
+---------------------
 <h4>Example: Start an Activity</h4>
 **Java**
 ````java
@@ -20,7 +20,7 @@ startActivity<SuperPowersActivity>(flags)
 ````
 
 Layout Inflation
--------------------------
+----------------
 **Java**
 ````java
 LayoutInflater layoutInflater = LayoutInflater.from(this);
@@ -33,7 +33,7 @@ val awesomeView = inflateLayout(R.layout.my_awesome_layout)
 ````
 
 Logs
--------------------------
+----
 <h4>Example: Logging</h4>
 **Java**
 ````java
@@ -53,7 +53,7 @@ wtf("Damn! WTF")
 ````
 
 Preferences
--------------------------
+-----------
 <h4>Example: Single Preference</h4>
 **Java**
 ````java
@@ -83,7 +83,7 @@ getDefaultSharedPreferences()
 ````
 
 Toasts
--------------------------
+------
 <h4>Example: Short Message</h4>
 **Java**
 ````java
@@ -110,7 +110,7 @@ showShortToast(view)
 ````
 
 System Services
--------------------------
+---------------
 **Java**
 ````java
 AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -124,7 +124,7 @@ val notificationManager = context.notificationManager()
 ````
 
 Resources
--------------------------
+---------
 <h4>Example: Typeface from Assets</h4>
 **Java**
 ````java
@@ -138,25 +138,25 @@ val sourceSansPro = typefaceFromAssets("fonts/source-sans-pro.ttf")
 ````
 
 More...
--------------------------
+-------
 More extensions under development.
 
 Maven
----------------------
+-----
     <dependency>
         <groupId>com.mobsandgeeks</groupId>
-        <artifactId>shorthand</artifactId>
+        <artifactId>kaffeine</artifactId>
         <version>0.1-SNAPSHOT</version>
     </dependency>
 
 Gradle
----------------------
+------
     dependencies {
-        compile 'com.mobsandgeeks:shorthand:0.1-SNAPSHOT'
+        compile 'com.mobsandgeeks:kaffeine:0.1-SNAPSHOT'
     }
 
 Snapshots
----------------------
+---------
 In your `{project_base}/build.gradle` file, include the following.
 
     allprojects {
@@ -169,7 +169,7 @@ In your `{project_base}/build.gradle` file, include the following.
     }
 
 License
--------------------------
+-------
     Copyright 2015 Mobs & Geeks
 
     Licensed under the Apache License, Version 2.0 (the "License");
