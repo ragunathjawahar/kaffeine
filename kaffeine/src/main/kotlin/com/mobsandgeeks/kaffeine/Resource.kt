@@ -1,12 +1,12 @@
 package com.mobsandgeeks.kaffeine
 
 import android.content.Context
-import android.content.res.Resources
-import android.graphics.Typeface
-import android.content.res.XmlResourceParser
 import android.content.res.ColorStateList
-import android.util.DisplayMetrics
+import android.content.res.Resources
+import android.content.res.XmlResourceParser
 import android.graphics.Movie
+import android.graphics.Typeface
+import android.util.DisplayMetrics
 
 
 public fun Context.getAnimation(animResId: Int): XmlResourceParser =
@@ -24,11 +24,11 @@ public fun Context.getColorStateList(stateListResId: Int): ColorStateList =
 public fun Context.getDimension(dimenResId: Int): Float =
         resources().getDimension(dimenResId)
 
-public fun Context.getIntArray(id: Int): IntArray =
-        resources().getIntArray(id)
-
 public fun Context.getDisplayMetrics(): DisplayMetrics =
         resources().getDisplayMetrics()
+
+public fun Context.getIntArray(id: Int): IntArray =
+        resources().getIntArray(id)
 
 public fun Context.getInteger(id: Int): Int =
         resources().getInteger(id)
