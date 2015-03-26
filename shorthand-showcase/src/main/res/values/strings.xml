@@ -4,10 +4,12 @@
     <string name="app_name">Shorthand</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
     <string-array name="dan_brown_books">
         <item>Inferno</item>
         <item>Angels &amp; Demons</item>
         <item>Deception Point</item>
         <item>Digital Fortress</item>
     </string-array>
+
 </resources>

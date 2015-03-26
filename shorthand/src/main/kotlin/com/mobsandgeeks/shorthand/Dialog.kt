@@ -92,83 +92,91 @@ public class Dialog(val context: Context) {
             builder.setView($viewId)
         }
 
-    public fun adapter(adapter: ListAdapter, listener: (DialogInterface, Int) -> Unit) {
+    public fun adapter(adapter: ListAdapter,
+            listener: (dialog: DialogInterface, which: Int) -> Unit) {
         builder.setAdapter(adapter, listener)
     }
 
-    public fun cursor(cursor: Cursor, listener: (DialogInterface, Int) -> Unit,
+    public fun cursor(cursor: Cursor, listener: (dialog: DialogInterface, which: Int) -> Unit,
             labelColumn: String) {
         builder.setCursor(cursor, listener, labelColumn)
     }
 
-    public fun items(itemsId: Int, listener: (DialogInterface, Int) -> Unit) {
+    public fun items(itemsId: Int, listener: (dialog: DialogInterface, which: Int) -> Unit) {
         builder.setItems(itemsId, listener)
     }
 
-    public fun items(items: Array<CharSequence>, listener: (DialogInterface, Int) -> Unit) {
+    public fun items(items: Array<CharSequence>,
+            listener: (dialog: DialogInterface, which: Int) -> Unit) {
         builder.setItems(items, listener)
     }
 
     public fun multiChoiceItems(items: Array<CharSequence>, checkedItems: BooleanArray,
-            listener: (DialogInterface, Int, Boolean) -> Unit) {
+            listener: (dialog: DialogInterface, which: Int, isChecked: Boolean) -> Unit) {
         builder.setMultiChoiceItems(items, checkedItems, listener)
     }
 
-    public fun multiChoiceItems(cursor: Cursor, isCheckedColumn: String,
-            labelColumn: String, listener: (DialogInterface, Int, Boolean) -> Unit) {
+    public fun multiChoiceItems(cursor: Cursor, isCheckedColumn: String, labelColumn: String,
+            listener: (dialog: DialogInterface, which: Int, isChecked: Boolean) -> Unit) {
         builder.setMultiChoiceItems(cursor, isCheckedColumn, labelColumn, listener)
     }
 
     public fun multiChoiceItems(itemsId: Int, checkedItems: BooleanArray,
-            listener: (DialogInterface, Int, Boolean) -> Unit) {
+            listener: (dialog: DialogInterface, which: Int, isChecked: Boolean) -> Unit) {
         builder.setMultiChoiceItems(itemsId, checkedItems, listener)
     }
 
-    public fun positiveButton(textId: Int, listener: ((DialogInterface, Int) -> Unit)?) {
+    public fun positiveButton(textId: Int,
+            listener: ((dialog: DialogInterface, which: Int) -> Unit)?) {
         positiveButton(context.getString(textId), listener)
     }
 
-    public fun positiveButton(text: String, listener: ((DialogInterface, Int) -> Unit)?) {
+    public fun positiveButton(text: String,
+            listener: ((dialog: DialogInterface, which: Int) -> Unit)?) {
         builder.setPositiveButton(text, listener)
     }
 
     public fun singleChoiceItems(items: Array<CharSequence>, checkedItem: Int,
-            listener: (DialogInterface, Int) -> Unit) {
+            listener: (dialog: DialogInterface, which: Int) -> Unit) {
         builder.setSingleChoiceItems(items, checkedItem, listener)
     }
 
     public fun singleChoiceItems(items: ListAdapter, checkedItem: Int,
-            listener: (DialogInterface, Int) -> Unit) {
+            listener: (dialog: DialogInterface, which: Int) -> Unit) {
         builder.setSingleChoiceItems(items, checkedItem, listener)
     }
 
     public fun singleChoiceItems(itemsId: Int, checkedItem: Int,
-            listener: (DialogInterface, Int) -> Unit) {
+            listener: (dialog: DialogInterface, which: Int) -> Unit) {
         builder.setSingleChoiceItems(itemsId, checkedItem, listener)
     }
 
     public fun singleChoiceItems(cursor: Cursor, checkedItem: Int, labelColumn: String,
-            listener: (DialogInterface, Int) -> Unit) {
+            listener: (dialog: DialogInterface, which: Int) -> Unit) {
         builder.setSingleChoiceItems(cursor, checkedItem, labelColumn, listener)
     }
 
-    public fun negativeButton(textId: Int, listener: ((DialogInterface, Int) -> Unit)?) {
+    public fun negativeButton(textId: Int,
+            listener: ((dialog: DialogInterface, which: Int) -> Unit)?) {
         negativeButton(context.getString(textId), listener)
     }
 
-    public fun negativeButton(text: String, listener: ((DialogInterface, Int) -> Unit)?) {
+    public fun negativeButton(text: String,
+            listener: ((dialog: DialogInterface, which: Int) -> Unit)?) {
         builder.setNegativeButton(text, listener)
     }
 
-    public fun neutralButton(textId: Int, listener: ((DialogInterface, Int) -> Unit)?) {
+    public fun neutralButton(textId: Int,
+            listener: ((dialog: DialogInterface, which: Int) -> Unit)?) {
         neutralButton(context.getString(textId), listener)
     }
 
-    public fun neutralButton(text: String, listener: ((DialogInterface, Int) -> Unit)?) {
+    public fun neutralButton(text: String,
+            listener: ((dialog: DialogInterface, which: Int) -> Unit)?) {
         builder.setNeutralButton(text, listener)
     }
 
-    public fun onCancelListener(listener: ((DialogInterface) -> Unit)?) {
+    public fun onCancelListener(listener: ((dialog: DialogInterface) -> Unit)?) {
         builder.setOnCancelListener(listener)
     }
 
@@ -176,11 +184,12 @@ public class Dialog(val context: Context) {
         builder.setOnItemSelectedListener(listener)
     }
 
-    public fun onDismissListener(listener: ((DialogInterface) -> Unit)?) {
+    public fun onDismissListener(listener: ((dialog: DialogInterface) -> Unit)?) {
         builder.setOnDismissListener(listener)
     }
 
-    public fun onKeyListener(listener: (DialogInterface, Int, KeyEvent) -> Boolean) {
+    public fun onKeyListener(
+            listener: (dialog: DialogInterface, keyCode: Int, event: KeyEvent) -> Boolean) {
         builder.setOnKeyListener(listener)
     }
 
