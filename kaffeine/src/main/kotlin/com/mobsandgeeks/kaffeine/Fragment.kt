@@ -19,7 +19,7 @@ import android.app.Fragment
 import kotlin.properties.ReadOnlyProperty
 
 
-val Fragment.context: ReadOnlyProperty<Any, Activity>
+val Fragment.context: ReadOnlyProperty<Any, Activity?>
     get() = ActivityDelegate(this)
 
 /*
