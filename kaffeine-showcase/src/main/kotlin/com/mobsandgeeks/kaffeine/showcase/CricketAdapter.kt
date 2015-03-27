@@ -10,23 +10,24 @@ import com.mobsandgeeks.kaffeine.find
 import java.util.ArrayList
 
 
-class CricketAdapter(c: Context, l: Int, i: ArrayList<CricketTeam>, b: CricketTeamBinder)
-        : KaffeineAdapter<CricketTeam, CricketTeamViewHolder, CricketTeamBinder>(c, l, i, b) {
-
-    override fun createHolder(view: View): CricketTeamViewHolder {
-        return CricketTeamViewHolder(view)
-    }
-}
-
 class CricketTeamViewHolder(view: View) : ViewHolder(view) {
     var teamNameTextView: TextView = view.find<TextView>(R.id.teamNameTextView)
     var captainTextView: TextView = view.find<TextView>(R.id.captainTextView)
 }
 
-class CricketTeamBinder : ViewBinder<CricketTeamViewHolder, CricketTeam> {
+class CricketTeamBinder : ViewBinder<CricketTeam, CricketTeamViewHolder> {
 
-    override fun bind(viewHolder: CricketTeamViewHolder, item: CricketTeam) {
+    override fun bind(item: CricketTeam, viewHolder: CricketTeamViewHolder) {
         viewHolder.teamNameTextView.setText(item.name)
         viewHolder.captainTextView.setText(item.captain)
+    }
+}
+
+class CricketAdapter(c: Context, layout: Int, items: ArrayList<CricketTeam>, b: CricketTeamBinder)
+        : KaffeineAdapter<CricketTeam, CricketTeamViewHolder, CricketTeamBinder>(
+                c, layout, items, b) {
+
+    override fun createHolder(view: View): CricketTeamViewHolder {
+        return CricketTeamViewHolder(view)
     }
 }

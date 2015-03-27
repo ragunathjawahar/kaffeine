@@ -24,15 +24,29 @@ import java.util.ArrayList
 
 public abstract class ViewHolder(val view: View)
 
-public trait ViewBinder<H : ViewHolder, I> {
-    fun bind(viewHolder: H, item: I)
+public trait ViewBinder<I, H : ViewHolder> {
+    fun bind(item: I, viewHolder: H)
 }
 
-public abstract class KaffeineAdapter<I, H : ViewHolder, B : ViewBinder<H, I>>(
-        context: Context, val layoutId: Int, val items: ArrayList<I>, val binder: B)
-                : ArrayAdapter<I>(context, layoutId, items) {
+public abstract class KaffeineAdapter<I, H : ViewHolder, B : ViewBinder<I, H>> : ArrayAdapter<I> {
+    private var layoutInflater: LayoutInflater? = null
+    private var layoutId: Int? = null
+    private var binder: B? = null
 
-    private var layoutInflater: LayoutInflater = context.layoutInflater()
+    constructor(context: Context, layoutId: Int, items: ArrayList<I>, binder: B)
+            : super(context, layoutId, items) {
+        initProperties(layoutId, binder)
+    }
+
+    constructor(context: Context, layoutId: Int, items: Array<I>, binder: B)
+            : super(context, layoutId, items) {
+        initProperties(layoutId, binder)
+    }
+
+    fun initProperties(layoutId: Int, binder: B) {
+        this.layoutId = layoutId
+        this.binder = binder
+    }
 
     [suppress("UNCHECKED_CAST")]
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
@@ -40,7 +54,7 @@ public abstract class KaffeineAdapter<I, H : ViewHolder, B : ViewBinder<H, I>>(
         var viewHolder: H? = null
 
         if (view == null) {
-            view = layoutInflater.inflate(layoutId, parent, false)
+            view = layoutInflater!!.inflate(layoutId!!, parent, false)
             viewHolder = createHolder(view!!)
             view?.setTag(viewHolder)
         } else {
@@ -48,7 +62,7 @@ public abstract class KaffeineAdapter<I, H : ViewHolder, B : ViewBinder<H, I>>(
         }
 
         var item: I = getItem(position)
-        binder.bind(viewHolder!!, item)
+        binder!!.bind(item, viewHolder!!)
 
         return view
     }
