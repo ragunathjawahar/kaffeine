@@ -6,6 +6,7 @@ import android.widget.TextView
 import com.mobsandgeeks.kaffeine.KaffeineAdapter
 import com.mobsandgeeks.kaffeine.ViewBinder
 import com.mobsandgeeks.kaffeine.ViewHolder
+import com.mobsandgeeks.kaffeine.find
 import java.util.ArrayList
 
 
@@ -18,8 +19,8 @@ class CricketAdapter(c: Context, l: Int, i: ArrayList<CricketTeam>, b: CricketTe
 }
 
 class CricketTeamViewHolder(view: View) : ViewHolder(view) {
-    var teamNameTextView: TextView = view.findViewById(R.id.teamNameTextView) as TextView
-    var captainTextView: TextView = view.findViewById(R.id.captainTextView) as TextView
+    var teamNameTextView: TextView = view.find<TextView>(R.id.teamNameTextView)
+    var captainTextView: TextView = view.find<TextView>(R.id.captainTextView)
 }
 
 class CricketTeamBinder : ViewBinder<CricketTeamViewHolder, CricketTeam> {
