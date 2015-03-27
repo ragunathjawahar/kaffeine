@@ -20,18 +20,17 @@ import android.os.Parcelable
 import android.util.Size
 import android.util.SizeF
 import android.util.SparseArray
-import com.mobsandgeeks.kaffeine
 import java.io.Serializable
 import java.util.ArrayList
 
 
-public fun Any.bundle(init: kaffeine.Bundle.() -> Unit): Bundle {
-    val bundle = kaffeine.Bundle()
-    bundle.init()
-    return bundle.pack()
+public fun Any.bundle(init: KaffeineBundle.() -> Unit): Bundle {
+    val kaffeineBundle = KaffeineBundle()
+    kaffeineBundle.init()
+    return kaffeineBundle.pack()
 }
 
-public class Bundle {
+public class KaffeineBundle {
     private val bundle = Bundle()
 
     public fun putBinder(key: String, value: IBinder?) {
