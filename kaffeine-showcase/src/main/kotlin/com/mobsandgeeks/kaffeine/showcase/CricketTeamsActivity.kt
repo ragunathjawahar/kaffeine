@@ -2,10 +2,10 @@ package com.mobsandgeeks.kaffeine.showcase
 
 import android.app.Activity
 import android.os.Bundle
+import android.view.View
 import android.widget.ListView
-import com.mobsandgeeks.kaffeine.adapter
-import com.mobsandgeeks.kaffeine.onItemClick
-import com.mobsandgeeks.kaffeine.showToastShort
+import android.widget.TextView
+import com.mobsandgeeks.kaffeine.*
 
 
 data class CricketTeam(val name: String, val captain: String)
@@ -31,10 +31,16 @@ public class CricketTeamsActivity : Activity() {
             }
             items = teams
         }
-
         cricketTeamsListView.setAdapter(cricketAdapter)
+
+        // Event listeners
         cricketTeamsListView.onItemClick<CricketTeam> { team ->
             showToastShort(team.toString())
         }
     }
+}
+
+class CricketTeamViewHolder(view: View) : ViewHolder(view) {
+    var teamNameTextView: TextView = view.find<TextView>(R.id.teamNameTextView)
+    var captainTextView: TextView = view.find<TextView>(R.id.captainTextView)
 }
