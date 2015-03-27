@@ -3,6 +3,7 @@ package com.mobsandgeeks.kaffeine.showcase
 import android.app.Activity
 import android.os.Bundle
 import android.widget.ListView
+import com.mobsandgeeks.kaffeine.adapter
 import com.mobsandgeeks.kaffeine.onItemClick
 import com.mobsandgeeks.kaffeine.showToastShort
 
@@ -21,8 +22,16 @@ public class CricketTeamsActivity : Activity() {
         val cricketTeamsListView = findViewById(R.id.cricketTeamsListView) as ListView
 
         // Adapter
-        var cricketAdapter = CricketAdapter(this, R.layout.list_item_cricket_team, teams,
-                CricketTeamBinder())
+        var cricketAdapter = adapter<CricketTeam, CricketTeamViewHolder>(this) {
+            layoutId = R.layout.list_item_cricket_team
+            holderMaker = { CricketTeamViewHolder(it) }
+            binder = { holder, team ->
+                holder.teamNameTextView.setText(team.name)
+                holder.captainTextView.setText(team.captain)
+            }
+            items = teams
+        }
+
         cricketTeamsListView.setAdapter(cricketAdapter)
         cricketTeamsListView.onItemClick<CricketTeam> { team ->
             showToastShort(team.toString())

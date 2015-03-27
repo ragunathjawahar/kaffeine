@@ -22,28 +22,27 @@ import android.widget.ArrayAdapter
 import java.util.ArrayList
 
 
-public abstract class ViewHolder(val view: View)
-
-public trait ViewBinder<I, H : ViewHolder> {
-    fun bind(item: I, viewHolder: H)
+public trait ViewBinder<M, H : ViewHolder> {
+    fun bind(item: M, viewHolder: H)
 }
 
-public abstract class KaffeineAdapter<I, H : ViewHolder, B : ViewBinder<I, H>> : ArrayAdapter<I> {
+public abstract class KaffeineAdapter<M, H : ViewHolder, B : ViewBinder<M, H>> : ArrayAdapter<M> {
     private var layoutInflater: LayoutInflater? = null
     private var layoutId: Int? = null
     private var binder: B? = null
 
-    constructor(context: Context, layoutId: Int, items: ArrayList<I>, binder: B)
+    constructor(context: Context, layoutId: Int, items: ArrayList<M>, binder: B)
             : super(context, layoutId, items) {
         initProperties(layoutId, binder)
     }
 
-    constructor(context: Context, layoutId: Int, items: Array<I>, binder: B)
+    constructor(context: Context, layoutId: Int, items: Array<M>, binder: B)
             : super(context, layoutId, items) {
         initProperties(layoutId, binder)
     }
 
     fun initProperties(layoutId: Int, binder: B) {
+        this.layoutInflater = getContext().layoutInflater()
         this.layoutId = layoutId
         this.binder = binder
     }
@@ -61,7 +60,7 @@ public abstract class KaffeineAdapter<I, H : ViewHolder, B : ViewBinder<I, H>> :
             viewHolder = view?.getTag() as H
         }
 
-        var item: I = getItem(position)
+        var item: M = getItem(position)
         binder!!.bind(item, viewHolder!!)
 
         return view
