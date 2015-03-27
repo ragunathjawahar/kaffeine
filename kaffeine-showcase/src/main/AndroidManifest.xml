@@ -8,13 +8,17 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".KaffeineActivity"
-            android:label="@string/app_name" >
+            android:name=".CricketTeamsActivity"
+            android:label="@string/title_activity_cricket_teams" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".KaffeineActivity"
+            android:label="@string/app_name" >
         </activity>
     </application>
 

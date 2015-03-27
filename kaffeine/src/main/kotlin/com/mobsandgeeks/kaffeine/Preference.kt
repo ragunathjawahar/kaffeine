@@ -73,7 +73,7 @@ public fun SharedPreferences.discardBulk(): SharedPreferences {
 
 /*
  * -----------------------------------------------------------------------------
- *  Private fields
+ *  Private properties
  * -----------------------------------------------------------------------------
  */
 private var SharedPreferences.bulkEditor: SharedPreferences.Editor?

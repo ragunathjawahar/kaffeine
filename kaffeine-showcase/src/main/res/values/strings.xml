@@ -4,12 +4,20 @@
     <string name="app_name">Kaffeine</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_cricket_teams">Cricket Teams</string>
 
     <string-array name="dan_brown_books">
         <item>Inferno</item>
         <item>Angels &amp; Demons</item>
         <item>Deception Point</item>
         <item>Digital Fortress</item>
+    </string-array>
+
+    <string-array name="cricket_teams">
+        <item>India</item>
+        <item>Australia</item>
+        <item>Sri Lanka</item>
+        <item>Bangladesh</item>
     </string-array>
 
 </resources>
