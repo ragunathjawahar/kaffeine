@@ -44,7 +44,7 @@ public class KaffeineActivity : Activity(), DialogInterface.OnClickListener {
         val arrayAdapter = ArrayAdapter(this@KaffeineActivity,
                 android.R.layout.simple_list_item_1, array)
 
-        val sampleDialog = alertDialog {
+        val sampleDialog = alertDialog(this) {
             titleId = R.string.app_name
             cancelable = true
 

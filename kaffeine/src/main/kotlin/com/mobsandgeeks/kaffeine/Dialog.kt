@@ -15,6 +15,7 @@
 package com.mobsandgeeks.kaffeine
 
 import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.database.Cursor
@@ -25,13 +26,13 @@ import android.widget.AdapterView
 import android.widget.ListAdapter
 
 
-public fun Context.alertDialog(init: Dialog.() -> Unit): Dialog {
-    val dialog = Dialog(this)
-    dialog.init()
-    return dialog
+public fun alertDialog(context: Context, init: KaffeineDialog.() -> Unit): Dialog {
+    val kaffeineDialog = KaffeineDialog(context)
+    kaffeineDialog.init()
+    return kaffeineDialog.build()
 }
 
-public class Dialog(val context: Context) {
+public class KaffeineDialog(val context: Context) {
     private val builder = AlertDialog.Builder(context)
 
     var titleId: Int = -1
@@ -194,7 +195,7 @@ public class Dialog(val context: Context) {
         builder.setOnCancelListener(listener)
     }
 
-    public fun onItemSelected(listener: AdapterView.OnItemSelectedListener) {
+    public fun onItemSelectedListener(listener: AdapterView.OnItemSelectedListener) {
         builder.setOnItemSelectedListener(listener)
     }
 
@@ -207,7 +208,5 @@ public class Dialog(val context: Context) {
         builder.setOnKeyListener(listener)
     }
 
-    public fun show() {
-        builder.create().show()
-    }
+    fun build(): Dialog = builder.create()
 }
