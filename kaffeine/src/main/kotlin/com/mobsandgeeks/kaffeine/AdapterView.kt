@@ -21,15 +21,15 @@ import android.widget.ListAdapter
 inline public fun <reified T> AdapterView<ListAdapter>.onItemClick(
         [inlineOptions(InlineOption.ONLY_LOCAL_RETURN)] listener: (T) -> Unit) {
 
-    this.setOnItemClickListener({ adapterView, view, position, id ->
+    this.setOnItemClickListener { adapterView, view, position, id ->
         listener(adapterView.getItemAtPosition(position) as T)
-    })
+    }
 }
 
 inline public fun <reified T> AdapterView<ListAdapter>.onItemClick(
         [inlineOptions(InlineOption.ONLY_LOCAL_RETURN)] listener: (T, Int) -> Unit) {
 
-    this.setOnItemClickListener({ adapterView, view, position, id ->
+    this.setOnItemClickListener { adapterView, view, position, id ->
         listener(adapterView.getItemAtPosition(position) as T, position)
-    })
+    }
 }
