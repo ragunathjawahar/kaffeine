@@ -39,8 +39,8 @@ inline public fun <reified T : Activity> Activity.startActivity(flags: Int): Uni
 inline public fun <reified T: Activity> Activity.startActivity(extras: Bundle): Unit =
         this.startActivity(getIntent<T>(extras))
 
-inline public fun <reified T: Activity> Activity.startActivity(extras: Bundle, flags: Int): Unit =
-        this.startActivity(getIntent<T>(extras, flags))
+inline public fun <reified T: Activity> Activity.startActivity(flags: Int, extras: Bundle): Unit =
+        this.startActivity(getIntent<T>(flags, extras))
 
 inline public fun <reified T : Activity> Activity.startActivityForResult(requestCode: Int): Unit =
         this.startActivityForResult(getIntent<T>(), requestCode)
@@ -55,7 +55,7 @@ inline public fun <reified T : Activity> Activity.startActivityForResult(
 
 inline public fun <reified T : Activity> Activity.startActivityForResult(
         extras: Bundle, requestCode: Int, flags: Int): Unit =
-                this.startActivityForResult(getIntent<T>(extras, flags), requestCode)
+                this.startActivityForResult(getIntent<T>(flags, extras), requestCode)
 
 inline public fun <reified T : Activity> Service.startActivity(): Unit =
         this.startActivity(getIntent<T>(Intent.FLAG_ACTIVITY_NEW_TASK))
@@ -64,10 +64,10 @@ inline public fun <reified T : Activity> Service.startActivity(flags: Int): Unit
         this.startActivity(getIntent<T>(flags))
 
 inline public fun <reified T: Activity> Service.startActivity(extras: Bundle): Unit =
-        this.startActivity(getIntent<T>(extras, Intent.FLAG_ACTIVITY_NEW_TASK))
+        this.startActivity(getIntent<T>(Intent.FLAG_ACTIVITY_NEW_TASK, extras))
 
 inline public fun <reified T: Activity> Service.startActivity(extras: Bundle, flags: Int): Unit =
-        this.startActivity(getIntent<T>(extras, flags))
+        this.startActivity(getIntent<T>(flags, extras))
 
 inline public fun <reified T: Service> Context.startService(): ComponentName =
         this.startService(getIntent<T>())
@@ -79,7 +79,7 @@ inline public fun <reified T: Service> Context.startService(extras: Bundle): Com
         this.startService(getIntent<T>(extras))
 
 inline public fun <reified T: Service> Context.startService(extras: Bundle,
-        flags: Int): ComponentName = this.startService(getIntent<T>(extras, flags))
+        flags: Int): ComponentName = this.startService(getIntent<T>(flags, extras))
 
 inline public fun <reified T: Context> Context.getIntent(): Intent =
         Intent(this, javaClass<T>())
@@ -91,9 +91,9 @@ inline public fun <reified T: Context> Context.getIntent(flags: Int): Intent {
 }
 
 inline public fun <reified T: Context> Context.getIntent(extras: Bundle): Intent =
-        getIntent<T>(extras, 0)
+        getIntent<T>(0, extras)
 
-inline public fun <reified T: Context> Context.getIntent(extras: Bundle, flags: Int): Intent {
+inline public fun <reified T: Context> Context.getIntent(flags: Int, extras: Bundle): Intent {
     val intent = getIntent<T>(flags)
     intent.putExtras(extras)
     return intent
