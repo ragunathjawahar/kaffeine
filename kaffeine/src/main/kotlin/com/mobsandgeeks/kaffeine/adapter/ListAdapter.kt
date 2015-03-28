@@ -34,7 +34,7 @@ public inline fun <M, H : ViewHolder> adapter(context: Context,
 public class AdapterBuilder<M, H : ViewHolder>(val context: Context) {
     var layoutId: Int = -1
     var holderMaker: ((view: View) -> H)? = null
-    var binder: ((H, M) -> Unit)? = null
+    var binder: ((holder: H, item: M) -> Unit)? = null
     var items: List<M>? = null
     var itemsArray: Array<M>? = null
 
@@ -53,10 +53,10 @@ public class AdapterBuilder<M, H : ViewHolder>(val context: Context) {
     }
 }
 
-public class BuildableAdapter<M, H : ViewHolder> : ArrayAdapter<M> {
+private class BuildableAdapter<M, H : ViewHolder> : ArrayAdapter<M> {
     private var layoutInflater: LayoutInflater? = null
     private var layoutId: Int? = null
-    var binder: ((H, M) -> Unit)? = null
+    var binder: ((holder: H, item: M) -> Unit)? = null
     var holderMaker: ((view: View) -> H)? = null
 
     constructor(context: Context, layoutId: Int, items: List<M>)
@@ -69,7 +69,7 @@ public class BuildableAdapter<M, H : ViewHolder> : ArrayAdapter<M> {
         initProperties(layoutId)
     }
 
-    fun initProperties(layoutId: Int) {
+    private fun initProperties(layoutId: Int) {
         this.layoutInflater = getContext().layoutInflater()
         this.layoutId = layoutId
     }
@@ -77,7 +77,7 @@ public class BuildableAdapter<M, H : ViewHolder> : ArrayAdapter<M> {
     [suppress("UNCHECKED_CAST")]
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
         var view = convertView
-        var viewHolder: H? = null
+        var viewHolder: H?
 
         if (view == null) {
             view = layoutInflater!!.inflate(layoutId!!, parent, false)

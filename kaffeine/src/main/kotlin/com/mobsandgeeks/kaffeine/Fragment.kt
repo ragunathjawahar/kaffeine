@@ -30,5 +30,6 @@ val Fragment.context: ReadOnlyProperty<Any, Activity?>
 private class ActivityDelegate<Activity>(private val fragment: Fragment)
         : ReadOnlyLazyDelegate<Any, Activity> {
 
+    [suppress("UNCHECKED_CAST")]
     override fun lazy(): Activity = fragment.getActivity() as Activity
 }

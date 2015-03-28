@@ -1,13 +1,18 @@
 package com.mobsandgeeks.kaffeine.showcase
 
 import android.app.Activity
+import android.content.Context
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ListView
 import android.widget.TextView
 import com.mobsandgeeks.kaffeine.adapter.ViewHolder
 import com.mobsandgeeks.kaffeine.adapter.adapter
 import com.mobsandgeeks.kaffeine.adapter.onItemClick
+import com.mobsandgeeks.kaffeine.layoutInflater
 import com.mobsandgeeks.kaffeine.view.find
 import com.mobsandgeeks.kaffeine.view.showToastShort
 
@@ -32,6 +37,14 @@ public class CricketTeamsActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_cricket_teams_recycler_view)
+
+        val cricketRecyclerView = findViewById(R.id.cricketTeamsRecyclerView) as RecyclerView
+
+        cricketRecyclerView.setLayoutManager(LinearLayoutManager(this))
+        cricketRecyclerView.setAdapter(CricRecylerAdapter(this, teams))
+
+        /*
         setContentView(R.layout.activity_cricket_teams)
 
         // UI References
@@ -53,10 +66,36 @@ public class CricketTeamsActivity : Activity() {
         cricketTeamsListView.onItemClick<CricketTeam> { team ->
             showToastShort(team.toString())
         }
+        */
     }
 }
 
 class CricketTeamViewHolder(view: View) : ViewHolder(view) {
     var teamNameTextView: TextView = view.find<TextView>(R.id.teamNameTextView)
     var captainTextView: TextView = view.find<TextView>(R.id.captainTextView)
+}
+
+class CricRecylerAdapter(val context: Context, val teams: List<CricketTeam>)
+        : RecyclerView.Adapter<CricRecyclerHolder>() {
+    val layoutInflater = context.layoutInflater()
+
+    override fun onCreateViewHolder(parent: ViewGroup?, position: Int): CricRecyclerHolder {
+        val view = layoutInflater.inflate(R.layout.list_item_cricket_team, parent, false)
+        return CricRecyclerHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: CricRecyclerHolder, position: Int) {
+        val team = teams.get(position)
+        holder.teamTextView.setText(team.name)
+        holder.captainTextView.setText(team.captain)
+    }
+
+    override fun getItemCount(): Int {
+        return teams.size()
+    }
+}
+
+class CricRecyclerHolder(view: View) : RecyclerView.ViewHolder(view) {
+    var teamTextView: TextView = view.find(R.id.teamNameTextView)
+    var captainTextView: TextView = view.find(R.id.captainTextView)
 }

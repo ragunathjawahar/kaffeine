@@ -1,1 +1,1 @@
-include ':kaffeine', ':kaffeine-showcase'
+include ':kaffeine', ':kaffeine-showcase', ':kaffeine-recyclerview-v7'

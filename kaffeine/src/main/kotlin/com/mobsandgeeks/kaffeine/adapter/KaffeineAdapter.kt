@@ -51,7 +51,7 @@ public abstract class KaffeineAdapter<M, H : ViewHolder, B : ViewBinder<M, H>> :
     [suppress("UNCHECKED_CAST")]
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
         var view = convertView
-        var viewHolder: H? = null
+        var viewHolder: H?
 
         if (view == null) {
             view = layoutInflater!!.inflate(layoutId!!, parent, false)
