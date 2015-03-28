@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-package com.mobsandgeeks.kaffeine
+package com.mobsandgeeks.kaffeine.adapter
 
 import android.widget.AdapterView
 import android.widget.ListAdapter

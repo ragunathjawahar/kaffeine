@@ -5,14 +5,30 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ListView
 import android.widget.TextView
-import com.mobsandgeeks.kaffeine.*
+import com.mobsandgeeks.kaffeine.adapter.ViewHolder
+import com.mobsandgeeks.kaffeine.adapter.adapter
+import com.mobsandgeeks.kaffeine.adapter.onItemClick
+import com.mobsandgeeks.kaffeine.view.find
+import com.mobsandgeeks.kaffeine.view.showToastShort
 
 
 data class CricketTeam(val name: String, val captain: String)
 
 public class CricketTeamsActivity : Activity() {
 
-    private val teams = arrayListOf(CricketTeam("CSK", "Dhoni"), CricketTeam("RCB", "Kholi"))
+    private val teams = arrayListOf(
+            CricketTeam("CSK", "Dhoni"),
+            CricketTeam("KKR", "Sharukh Khan"),
+            CricketTeam("HSR", "Dyanathi Maran"),
+            CricketTeam("KEP", "Preity Zinta"),
+            CricketTeam("MI", "Sachin Tendulkar"),
+            CricketTeam("Kochi", "Sendhil MG"),
+            CricketTeam("India", "Dhoni"),
+            CricketTeam("Sri Lanka", "Ranathunga"),
+            CricketTeam("Australia", "Clarke"),
+            CricketTeam("New Zealand", "Yavano"),
+            CricketTeam("Canada", "King Kong")
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

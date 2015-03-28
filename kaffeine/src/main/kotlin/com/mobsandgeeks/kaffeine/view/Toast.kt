@@ -12,11 +12,11 @@
  * limitations under the License.
  */
 
-package com.mobsandgeeks.kaffeine
+package com.mobsandgeeks.kaffeine.view
 
-import android.widget.Toast
 import android.content.Context
 import android.view.View
+import android.widget.Toast
 
 
 public fun Context.showToastShort(messageResId: Int) {

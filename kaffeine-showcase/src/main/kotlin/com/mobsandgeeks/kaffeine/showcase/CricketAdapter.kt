@@ -2,8 +2,8 @@ package com.mobsandgeeks.kaffeine.showcase
 
 import android.content.Context
 import android.view.View
-import com.mobsandgeeks.kaffeine.KaffeineAdapter
-import com.mobsandgeeks.kaffeine.ViewBinder
+import com.mobsandgeeks.kaffeine.adapter.KaffeineAdapter
+import com.mobsandgeeks.kaffeine.adapter.ViewBinder
 import java.util.ArrayList
 
 

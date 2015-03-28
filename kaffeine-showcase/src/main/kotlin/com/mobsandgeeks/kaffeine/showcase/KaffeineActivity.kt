@@ -7,7 +7,12 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.TextView
-import com.mobsandgeeks.kaffeine.*
+import com.mobsandgeeks.kaffeine.getDefaultSharedPreferences
+import com.mobsandgeeks.kaffeine.putString
+import com.mobsandgeeks.kaffeine.stringArray
+import com.mobsandgeeks.kaffeine.view.alertDialog
+import com.mobsandgeeks.kaffeine.view.showToastLong
+import com.mobsandgeeks.kaffeine.view.showToastShort
 
 
 public class KaffeineActivity : Activity(), DialogInterface.OnClickListener {

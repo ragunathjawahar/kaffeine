@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-package com.mobsandgeeks.kaffeine
+package com.mobsandgeeks.kaffeine.view
 
 import android.text.Html
 import android.widget.TextView
