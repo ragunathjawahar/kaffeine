@@ -34,22 +34,20 @@ public inline fun <M, H : ViewHolder> adapter(context: Context,
 
 public class AdapterBuilder<M, H : ViewHolder>(val context: Context) {
     var layoutId: Int = -1
-    var holderMaker: ((view: View) -> H)? = null
-    var binder: ((holder: H, item: M) -> Unit)? = null
+    var holderMaker: (view: View) -> H by Delegates.notNull()
+    var binder: (holder: H, item: M) -> Unit by Delegates.notNull()
     var items: List<M>? = null
     var itemsArray: Array<M>? = null
 
     public fun build(): ArrayAdapter<M> {
         if (layoutId == -1) throw IllegalStateException("You must set a valid 'layoutId'")
-        if (holderMaker == null) throw IllegalStateException("'holder' cannot be null")
-        if (binder == null) throw IllegalStateException("'binder' cannot be null")
         if (items == null && itemsArray == null)
                 throw IllegalStateException("Non-null 'items' or 'itemsArray' is required")
 
         val adapter = if (items != null) BuildableAdapter<M, H>(context, layoutId, items!!)
                 else BuildableAdapter<M, H>(context, layoutId, itemsArray!!)
-        adapter.binder = this.binder!!
-        adapter.holderMaker = holderMaker!!
+        adapter.binder = this.binder
+        adapter.holderMaker = holderMaker
         return adapter
     }
 }
