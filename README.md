@@ -2,6 +2,17 @@ Kaffeine
 ========
 Kaffeine is a Kotlin-flavored Android library for accelerating development.
 
+Several Words of Caution
+------------------------
+Besides the obvious productivity advantages, if you are using this project - be prepared to shoot
+yourself in the foot or to blow your legs off. This is an experimental project that I am working on
+while I learn Kotlin and functional programming. Some of the lucrative approaches used in
+this project may not be best practices and I don't have any guarantees over the API. Don't be
+surprised if the API changes for every SNAPSHOT. If you are trending along a safe path, this project
+is definitely not for you. I may highlight caveats in some of the approaches if I am smart enough
+to figure them out. But, feel free to throw some light if you spot some dumbness (or a lot) along
+the lane.
+
 Activities & Services
 ---------------------
 <h4>Example: Start an Activity</h4>
