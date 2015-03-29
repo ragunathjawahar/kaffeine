@@ -20,6 +20,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import com.mobsandgeeks.kaffeine.layoutInflater
+import kotlin.properties.Delegates
 
 
 public abstract class ViewHolder(val view: View)
@@ -54,10 +55,10 @@ public class AdapterBuilder<M, H : ViewHolder>(val context: Context) {
 }
 
 private class BuildableAdapter<M, H : ViewHolder> : ArrayAdapter<M> {
-    private var layoutInflater: LayoutInflater? = null
-    private var layoutId: Int? = null
-    var binder: ((holder: H, item: M) -> Unit)? = null
-    var holderMaker: ((view: View) -> H)? = null
+    private var layoutInflater: LayoutInflater by Delegates.notNull()
+    private var layoutId: Int by Delegates.notNull()
+    var binder: (holder: H, item: M) -> Unit by Delegates.notNull()
+    var holderMaker: (view: View) -> H by Delegates.notNull()
 
     constructor(context: Context, layoutId: Int, items: List<M>)
             : super(context, layoutId, items) {
@@ -80,15 +81,15 @@ private class BuildableAdapter<M, H : ViewHolder> : ArrayAdapter<M> {
         var viewHolder: H?
 
         if (view == null) {
-            view = layoutInflater!!.inflate(layoutId!!, parent, false)
-            viewHolder = holderMaker!!(view!!)
+            view = layoutInflater.inflate(layoutId, parent, false)
+            viewHolder = holderMaker(view!!)
             view?.setTag(viewHolder)
         } else {
             viewHolder = view?.getTag() as H
         }
 
         var item: M = getItem(position)
-        binder!!(viewHolder!!, item)
+        binder(viewHolder!!, item)
 
         return view
     }
