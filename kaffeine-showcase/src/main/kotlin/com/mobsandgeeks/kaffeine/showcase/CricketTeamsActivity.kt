@@ -11,7 +11,6 @@ import android.widget.TextView
 import com.mobsandgeeks.kaffeine.adapter.ViewHolder
 import com.mobsandgeeks.kaffeine.layoutInflater
 import com.mobsandgeeks.kaffeine.view.find
-import kotlinx.android.synthetic.activity_cricket_teams_recycler_view.*
 
 data class CricketTeam(val name: String, val captain: String)
 
@@ -34,6 +33,8 @@ public class CricketTeamsActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cricket_teams_recycler_view)
+
+        val cricketTeamsRecyclerView = find<RecyclerView>(R.id.cricketTeamsRecyclerView)
 
         cricketTeamsRecyclerView.setLayoutManager(LinearLayoutManager(this))
         cricketTeamsRecyclerView.setAdapter(CricRecylerAdapter(this, teams))
@@ -70,7 +71,7 @@ class CricketTeamViewHolder(view: View) : ViewHolder(view) {
 }
 
 class CricRecylerAdapter(val context: Context, val teams: List<CricketTeam>)
-        : RecyclerView.Adapter<CricRecyclerHolder>() {
+        :  RecyclerView.Adapter<CricRecyclerHolder>() {
     val layoutInflater = context.layoutInflater()
 
     override fun onCreateViewHolder(parent: ViewGroup?, position: Int): CricRecyclerHolder {

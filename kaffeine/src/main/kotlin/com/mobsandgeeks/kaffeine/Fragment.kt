@@ -16,20 +16,11 @@ package com.mobsandgeeks.kaffeine
 
 import android.app.Activity
 import android.app.Fragment
+import kotlin.properties.Delegates
 import kotlin.properties.ReadOnlyProperty
 
 
 val Fragment.context: ReadOnlyProperty<Any, Activity?>
-    get() = ActivityDelegate(this)
-
-/*
- * -----------------------------------------------------------------------------
- *  Private functions
- * -----------------------------------------------------------------------------
- */
-private class ActivityDelegate<Activity>(private val fragment: Fragment)
-        : ReadOnlyLazyDelegate<Any, Activity> {
-
-    [suppress("UNCHECKED_CAST")]
-    override fun lazy(): Activity = fragment.getActivity() as Activity
-}
+    get() = Delegates.lazy {
+        getActivity()
+    }

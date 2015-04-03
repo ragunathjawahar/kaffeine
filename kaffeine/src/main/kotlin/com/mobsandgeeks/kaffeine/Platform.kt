@@ -17,7 +17,7 @@ package com.mobsandgeeks.kaffeine
 import android.os.Build
 
 
-public fun Any.platformVersion(): Int = Build.VERSION.SDK_INT
+public fun Any.platformApi(): Int = Build.VERSION.SDK_INT
 
 public fun Any.platformIsOlderThan(version: Int): Boolean = Build.VERSION.SDK_INT < version
 
