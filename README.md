@@ -16,6 +16,7 @@ the lane.
 Activities & Services
 ---------------------
 <h4>Example: Start an Activity</h4>
+
 **Java**
 ````java
 Intent intent = new Intent(this, SuperPowersActivity.class);
@@ -32,6 +33,7 @@ startActivity<SuperPowersActivity>(flags)
 
 Layout Inflation
 ----------------
+
 **Java**
 ````java
 LayoutInflater layoutInflater = LayoutInflater.from(this);
@@ -46,6 +48,7 @@ val awesomeView = inflateLayout(R.layout.my_awesome_layout)
 Logs
 ----
 <h4>Example: Logging</h4>
+
 **Java**
 ````java
 String tag = this.getClass().getName();
@@ -66,6 +69,7 @@ wtf("Damn! WTF")
 Preferences
 -----------
 <h4>Example: Single Preference</h4>
+
 **Java**
 ````java
 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -84,6 +88,7 @@ getDefaultSharedPreferences().putBoolean("KEY_WALKTHROUGH_COMPLETE", complete)
 ````
 
 <h4>Example: Bulk Preferences</h4>
+
 **Kotlin**
 ````kotlin
 getDefaultSharedPreferences()
@@ -96,6 +101,7 @@ getDefaultSharedPreferences()
 Toasts
 ------
 <h4>Example: Short Message</h4>
+
 **Java**
 ````java
 Toast.makeText(this, R.string.welcome, Toast.LENGTH_SHORT).show();
@@ -107,6 +113,7 @@ showShortToast(R.string.welcome)
 ````
 
 <h4>Example: Custom Toast</h4>
+
 **Java**
 ````java
 Toast toast = new Toast(this);
@@ -122,6 +129,7 @@ showShortToast(view)
 
 System Services
 ---------------
+
 **Java**
 ````java
 AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -137,6 +145,7 @@ val notificationManager = context.notificationManager()
 Resources
 ---------
 <h4>Example: Typeface from Assets</h4>
+
 **Java**
 ````java
 AssetManager assetManager = getAssets();
